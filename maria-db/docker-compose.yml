@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  db:
+    image: mariadb:10.2
+    container_name: db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=energia
+      - MYSQL_USER=energiauser
+      - MYSQL_PASSWORD=3n3rg14p455
+    networks:
+      - network-app
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    restart: always
+    volumes:
+      - db-volume:/var/lib/mysql
+networks:
+  network-app:
+volumes:
+  db-volume:
+    #external: true

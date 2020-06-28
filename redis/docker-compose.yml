@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  redis:
+    image: redis
+    container_name: redis
+    command: redis-server --requirepass Redis2019!
+    networks:
+      - redis-network
+    ports:
+      - '6379:6379'
+    restart: always
+    volumes:
+      - redis-data:/data
+networks:
+  redis-network:
+volumes:
+  redis-data:

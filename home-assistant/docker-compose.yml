@@ -1,0 +1,59 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant:stable
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+      - /dev/ttyACM0:/dev/ttyACM0
+    ports:
+      - '8123:8123'
+      - '8943:8943'
+    volumes:
+      - ~/Documents/homeassistant/config:/config
+      #- /PATH_TO_YOUR_CONFIG:/config
+    environment:
+      - TZ=America/Sao_Paulo
+    privileged: true
+    command: [ "python", "-m", "homeassistant", "--config", "/config", "--log-rotate-days", '3' ]
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8123"]
+      interval: 30s
+      timeout: 10s
+      retries: 6
+    networks:
+      - default
+  
+  nodered:
+    container_name: node-red
+    image: nodered/node-red-docker
+    depends_on:
+      - "homeassistant"
+    ports:
+      - "1880:1880"
+    user: 1000:1000
+    restart: always
+    networks:
+      - default
+    volumes:
+      - ~/Documents/node-red/data:/data
+
+  mqtt:
+    container_name: mosquitto
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    privileged: true
+    networks:
+      - default
+    volumes:
+      - ~/Documents/mosquitto/config:/mqtt/config:ro
+      - ~/Documents/mosquitto/log:/mqtt/log
+      - ~/Documents/mosquitto/data/:/mqtt/data
+
+networks:  
+  default:
+    driver: bridge

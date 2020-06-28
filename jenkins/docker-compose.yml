@@ -1,0 +1,33 @@
+version: '3.4'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    networks:
+      - jenkins_network
+    labels:
+      kompose.service.type: nodeport
+    ports:
+      - '80:8080'
+      - '443:8443'
+      - '50000:50000'
+    volumes:
+      #- jenkins_data:/var/jenkins_home
+      - /Volumes/Data/Development/Containers/Jenkins:/var/jenkins_home
+    
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss
+    container_name: artifactory
+    networks:
+      - jenkins_network
+    ports:
+      - '8081:8080'
+    volumes:
+      #- artifactory_data:/var/opt/jfrog/artifactory
+      - /Volumes/Data/Development/Containers/Artifactory:/var/opt/jfrog/artifactory
+      
+networks:
+  jenkins_network:
+volumes:
+  jenkins_data:
+  artifactory_data:

@@ -1,0 +1,11 @@
+version: '3'
+services:
+  homeassistant-debian:
+    container_name: homeassistant-debian
+    build: .
+    privileged: true
+    ports:
+      - "8123:8123"
+      - "8943:8943"
+    #restart: always
+    network_mode: host

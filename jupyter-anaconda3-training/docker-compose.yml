@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  jupyter-anaconda3:
+    container_name: jupyter-anaconda3-training
+    labels:
+      description: Jupyter Notebooks
+      name: Jupyter Notebook
+    networks:
+      - jupyter-anaconda3-network
+    ports:
+      - "8888:8888"
+    restart: always
+    volumes:
+      - ~/Documents/jupyter-notebooks:/home/notebooks
+    build: . 
+networks:
+  jupyter-anaconda3-network:
