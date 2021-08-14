@@ -1,0 +1,194 @@
+[2021-07-30 23:56:37.092 318M] Using log file /var/log/pihole-FTL.log
+[2021-07-30 23:56:37.102 318M] ########## FTL started! ##########
+[2021-07-30 23:56:37.113 318M] FTL branch: master
+[2021-07-30 23:56:37.122 318M] FTL version: v5.8.1
+[2021-07-30 23:56:37.133 318M] FTL commit: b90ab8b1
+[2021-07-30 23:56:37.147 318M] FTL date: 2021-04-21 20:03:47 +0100
+[2021-07-30 23:56:37.163 318M] FTL user: root
+[2021-07-30 23:56:37.173 318M] Compiled for x86_64 (compiled on CI) using gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
+[2021-07-30 23:56:37.184 318M] Creating mutex
+[2021-07-30 23:56:37.210 318M] Starting config file parsing (/etc/pihole/pihole-FTL.conf)
+[2021-07-30 23:56:37.231 318M]    SOCKET_LISTENING: only local
+[2021-07-30 23:56:37.250 318M]    AAAA_QUERY_ANALYSIS: Show AAAA queries
+[2021-07-30 23:56:37.260 318M]    MAXDBDAYS: max age for stored queries is 365 days
+[2021-07-30 23:56:37.268 318M]    RESOLVE_IPV6: Resolve IPv6 addresses
+[2021-07-30 23:56:37.283 318M]    RESOLVE_IPV4: Resolve IPv4 addresses
+[2021-07-30 23:56:37.293 318M]    DBINTERVAL: saving to DB file every minute
+[2021-07-30 23:56:37.304 318M]    DBFILE: Using /etc/pihole/pihole-FTL.db
+[2021-07-30 23:56:37.319 318M]    MAXLOGAGE: Importing up to 24.0 hours of log data
+[2021-07-30 23:56:37.330 318M]    PRIVACYLEVEL: Set to 0
+[2021-07-30 23:56:37.340 318M]    IGNORE_LOCALHOST: Show queries from localhost
+[2021-07-30 23:56:37.350 318M]    BLOCKINGMODE: Null IPs for blocked domains
+[2021-07-30 23:56:37.359 318M]    ANALYZE_ONLY_A_AND_AAAA: Disabled. Analyzing all queries
+[2021-07-30 23:56:37.368 318M]    DBIMPORT: Importing history from database
+[2021-07-30 23:56:37.378 318M]    PIDFILE: Using /run/pihole-FTL.pid
+[2021-07-30 23:56:37.386 318M]    PORTFILE: Using /run/pihole-FTL.port
+[2021-07-30 23:56:37.396 318M]    SOCKETFILE: Using /run/pihole/FTL.sock
+[2021-07-30 23:56:37.409 318M]    SETUPVARSFILE: Using /etc/pihole/setupVars.conf
+[2021-07-30 23:56:37.421 318M]    MACVENDORDB: Using /etc/pihole/macvendor.db
+[2021-07-30 23:56:37.429 318M]    GRAVITYDB: Using /etc/pihole/gravity.db
+[2021-07-30 23:56:37.438 318M]    PARSE_ARP_CACHE: Active
+[2021-07-30 23:56:37.450 318M]    CNAME_DEEP_INSPECT: Active
+[2021-07-30 23:56:37.459 318M]    DELAY_STARTUP: No delay requested.
+[2021-07-30 23:56:37.470 318M]    BLOCK_ESNI: Enabled, blocking _esni.{blocked domain}
+[2021-07-30 23:56:37.480 318M]    NICE: Cannot change niceness to -10 (permission denied)
+[2021-07-30 23:56:37.526 318M]    MAXNETAGE: Removing IP addresses and host names from network table after 365 days
+[2021-07-30 23:56:37.558 318M]    NAMES_FROM_NETDB: Enabled, trying to get names from network database
+[2021-07-30 23:56:37.573 318M]    EDNS0_ECS: Overwrite client from ECS information
+[2021-07-30 23:56:37.586 318M]    REFRESH_HOSTNAMES: Periodically refreshing IPv4 names
+[2021-07-30 23:56:37.596 318M]    RATE_LIMIT: Rate-limiting client making more than 1000 queries in 60 seconds
+[2021-07-30 23:56:37.611 318M]    REPLY_ADDR4: Automatic interface-dependent detection of address
+[2021-07-30 23:56:37.621 318M]    REPLY_ADDR6: Automatic interface-dependent detection of address
+[2021-07-30 23:56:37.629 318M] Finished config file parsing
+[2021-07-30 23:56:37.642 318M] WARNING: Starting pihole-FTL as user root is not recommended
+[2021-07-30 23:56:37.718 318M] Database version is 9
+[2021-07-30 23:56:37.752 318M] Imported 0 alias-clients
+[2021-07-30 23:56:37.764 318M] Database successfully initialized
+[2021-07-30 23:56:37.806 318M] Imported 0 queries from the long-term database
+[2021-07-30 23:56:37.829 318M]  -> Total DNS queries: 0
+[2021-07-30 23:56:37.845 318M]  -> Cached DNS queries: 0
+[2021-07-30 23:56:37.858 318M]  -> Forwarded DNS queries: 0
+[2021-07-30 23:56:37.867 318M]  -> Blocked DNS queries: 0
+[2021-07-30 23:56:37.875 318M]  -> Unknown DNS queries: 0
+[2021-07-30 23:56:37.884 318M]  -> Unique domains: 0
+[2021-07-30 23:56:37.893 318M]  -> Unique clients: 0
+[2021-07-30 23:56:37.901 318M]  -> Known forward destinations: 0
+[2021-07-30 23:56:37.913 318M] Successfully accessed setupVars.conf
+[2021-07-30 23:56:37.935 318M] *************************************************************************
+[2021-07-30 23:56:37.949 318M] * WARNING: Required Linux capability CAP_SYS_NICE not available         *
+[2021-07-30 23:56:37.958 318M] *************************************************************************
+[2021-07-30 23:56:38.019 320M] PID of FTL process: 320
+[2021-07-30 23:56:38.035 320/T322] Listening on port 4711 for incoming IPv4 telnet connections
+[2021-07-30 23:56:38.031 320M] INFO: FTL is running as root
+[2021-07-30 23:56:38.034 320/T326] Terminating GC thread
+[2021-07-30 23:56:38.043 320/T325] Terminating database thread
+[2021-07-30 23:56:38.047 320/T327] Terminating resolver thread
+[2021-07-30 23:56:38.050 320/T322] Terminating IPv4 telnet thread
+[2021-07-30 23:56:38.043 320/T324] Listening on Unix socket
+[2021-07-30 23:56:38.171 320/T324] Terminating socket thread
+[2021-07-30 23:56:38.198 320M] Shutting down...
+[2021-07-30 23:56:38.578 320M] Finished final database update
+[2021-07-30 23:56:39.060 405M] Using log file /var/log/pihole-FTL.log
+[2021-07-30 23:56:39.189 405M] ########## FTL started! ##########
+[2021-07-30 23:56:39.223 405M] FTL branch: master
+[2021-07-30 23:56:39.272 405M] FTL version: v5.8.1
+[2021-07-30 23:56:39.330 405M] FTL commit: b90ab8b1
+[2021-07-30 23:56:39.379 405M] FTL date: 2021-04-21 20:03:47 +0100
+[2021-07-30 23:56:39.401 405M] FTL user: root
+[2021-07-30 23:56:39.428 405M] Compiled for x86_64 (compiled on CI) using gcc (Debian 6.3.0-18+deb9u1) 6.3.0 20170516
+[2021-07-30 23:56:39.461 405M] Creating mutex
+[2021-07-30 23:56:39.520 405M] Starting config file parsing (/etc/pihole/pihole-FTL.conf)
+[2021-07-30 23:56:39.563 405M]    SOCKET_LISTENING: only local
+[2021-07-30 23:56:39.586 405M]    AAAA_QUERY_ANALYSIS: Show AAAA queries
+[2021-07-30 23:56:39.629 405M]    MAXDBDAYS: max age for stored queries is 365 days
+[2021-07-30 23:56:39.654 405M]    RESOLVE_IPV6: Resolve IPv6 addresses
+[2021-07-30 23:56:39.691 405M]    RESOLVE_IPV4: Resolve IPv4 addresses
+[2021-07-30 23:56:39.757 405M]    DBINTERVAL: saving to DB file every minute
+[2021-07-30 23:56:39.786 405M]    DBFILE: Using /etc/pihole/pihole-FTL.db
+[2021-07-30 23:56:39.808 405M]    MAXLOGAGE: Importing up to 24.0 hours of log data
+[2021-07-30 23:56:39.832 405M]    PRIVACYLEVEL: Set to 0
+[2021-07-30 23:56:39.849 405M]    IGNORE_LOCALHOST: Show queries from localhost
+[2021-07-30 23:56:39.875 405M]    BLOCKINGMODE: Null IPs for blocked domains
+[2021-07-30 23:56:39.935 405M]    ANALYZE_ONLY_A_AND_AAAA: Disabled. Analyzing all queries
+[2021-07-30 23:56:40.034 405M]    DBIMPORT: Importing history from database
+[2021-07-30 23:56:40.086 405M]    PIDFILE: Using /run/pihole-FTL.pid
+[2021-07-30 23:56:40.114 405M]    PORTFILE: Using /run/pihole-FTL.port
+[2021-07-30 23:56:40.233 405M]    SOCKETFILE: Using /run/pihole/FTL.sock
+[2021-07-30 23:56:40.336 405M]    SETUPVARSFILE: Using /etc/pihole/setupVars.conf
+[2021-07-30 23:56:40.380 405M]    MACVENDORDB: Using /etc/pihole/macvendor.db
+[2021-07-30 23:56:40.402 405M]    GRAVITYDB: Using /etc/pihole/gravity.db
+[2021-07-30 23:56:40.430 405M]    PARSE_ARP_CACHE: Active
+[2021-07-30 23:56:40.464 405M]    CNAME_DEEP_INSPECT: Active
+[2021-07-30 23:56:40.475 405M]    DELAY_STARTUP: No delay requested.
+[2021-07-30 23:56:40.535 405M]    BLOCK_ESNI: Enabled, blocking _esni.{blocked domain}
+[2021-07-30 23:56:40.552 405M]    NICE: Cannot change niceness to -10 (permission denied)
+[2021-07-30 23:56:40.572 405M]    MAXNETAGE: Removing IP addresses and host names from network table after 365 days
+[2021-07-30 23:56:40.585 405M]    NAMES_FROM_NETDB: Enabled, trying to get names from network database
+[2021-07-30 23:56:40.600 405M]    EDNS0_ECS: Overwrite client from ECS information
+[2021-07-30 23:56:40.613 405M]    REFRESH_HOSTNAMES: Periodically refreshing IPv4 names
+[2021-07-30 23:56:40.632 405M]    RATE_LIMIT: Rate-limiting client making more than 1000 queries in 60 seconds
+[2021-07-30 23:56:40.641 405M]    REPLY_ADDR4: Automatic interface-dependent detection of address
+[2021-07-30 23:56:40.659 405M]    REPLY_ADDR6: Automatic interface-dependent detection of address
+[2021-07-30 23:56:40.673 405M] Finished config file parsing
+[2021-07-30 23:56:40.687 405M] WARNING: Starting pihole-FTL as user root is not recommended
+[2021-07-30 23:56:40.720 405M] Database version is 9
+[2021-07-30 23:56:40.742 405M] Imported 0 alias-clients
+[2021-07-30 23:56:40.760 405M] Database successfully initialized
+[2021-07-30 23:56:40.913 405M] Imported 0 queries from the long-term database
+[2021-07-30 23:56:40.966 405M]  -> Total DNS queries: 0
+[2021-07-30 23:56:41.056 405M]  -> Cached DNS queries: 0
+[2021-07-30 23:56:41.136 405M]  -> Forwarded DNS queries: 0
+[2021-07-30 23:56:41.256 405M]  -> Blocked DNS queries: 0
+[2021-07-30 23:56:41.276 405M]  -> Unknown DNS queries: 0
+[2021-07-30 23:56:41.302 405M]  -> Unique domains: 0
+[2021-07-30 23:56:41.328 405M]  -> Unique clients: 0
+[2021-07-30 23:56:41.373 405M]  -> Known forward destinations: 0
+[2021-07-30 23:56:41.401 405M] Successfully accessed setupVars.conf
+[2021-07-30 23:56:41.413 405M] *************************************************************************
+[2021-07-30 23:56:41.433 405M] * WARNING: Required Linux capability CAP_SYS_NICE not available         *
+[2021-07-30 23:56:41.443 405M] *************************************************************************
+[2021-07-30 23:56:41.484 405M] PID of FTL process: 405
+[2021-07-30 23:56:41.506 405M] INFO: FTL is running as root
+[2021-07-30 23:56:41.506 405/T487] Listening on port 4711 for incoming IPv4 telnet connections
+[2021-07-30 23:56:41.506 405/T489] Listening on Unix socket
+[2021-07-30 23:56:41.570 405M] Reloading DNS cache
+[2021-07-30 23:56:41.599 405M] Blocking status is enabled
+[2021-07-30 23:56:42.527 405/T490] Resizing "FTL-strings" from 40960 to (81920 * 1) == 81920 (/dev/shm: 720.9KB used, 67.1MB total, FTL uses 708.9KB)
+[2021-07-30 23:56:42.802 405/T490] Compiled 0 whitelist and 0 blacklist regex filters for 0 clients in 27.0 msec
+[2021-07-30 23:57:01.601 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-30 23:57:01.617 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-30 23:57:22.786 405M] Reloading DNS cache
+[2021-07-30 23:57:22.801 405M] Blocking status is enabled
+[2021-07-30 23:57:23.322 405/T490] SQLite3 message: file renamed while open: /etc/pihole/gravity.db (28)
+[2021-07-30 23:57:23.390 405/T490] Compiled 0 whitelist and 0 blacklist regex filters for 0 clients in 23.4 msec
+[2021-07-30 23:57:32.020 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-30 23:57:32.043 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-30 23:58:02.601 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-30 23:58:02.610 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-30 23:58:32.937 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-30 23:58:32.943 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-30 23:59:03.341 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-30 23:59:03.349 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-30 23:59:33.728 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-30 23:59:33.736 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:00:04.063 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:00:04.074 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:00:34.515 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:00:34.534 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:01:04.871 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:01:04.880 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:01:35.211 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:01:35.224 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:02:05.640 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:02:05.650 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:02:36.017 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:02:36.031 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:03:06.567 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:03:06.576 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:03:36.931 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:03:36.943 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:04:07.418 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:04:07.432 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:04:37.760 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:04:37.766 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:05:08.625 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:05:08.632 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:05:39.068 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:05:39.085 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:06:09.453 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:06:09.491 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:06:40.155 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:06:40.170 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:07:10.401 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:07:10.407 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:07:40.600 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:07:40.604 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:08:10.926 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:08:10.934 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:08:41.195 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:08:41.206 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:09:11.436 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:09:11.441 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:09:43.214 405M] FATAL: Trying to access query ID 0, but magic byte is 0
+[2021-07-31 00:09:43.237 405M]        found in findQueryID() (/root/project/src/datastructure.c:58)
+[2021-07-31 00:09:54.484 405M] New upstream server: 8.8.4.4:53 (0/512)

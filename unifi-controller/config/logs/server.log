@@ -1,0 +1,132 @@
+[2021-07-31T13:06:51,553] <launcher> WARN  system - reload system.properties failed: file not found
+[2021-07-31T13:06:51,586] <launcher> WARN  system - reload system.properties.bk failed: file not found
+[2021-07-31T13:06:51,596] <launcher> INFO  system - *** Running for the first time, creating identity ***
+[2021-07-31T13:06:51,599] <launcher> INFO  system - UUID: d27e0bf7-e97f-4c74-9035-f8c3a622e717
+[2021-07-31T13:06:51,603] <launcher> WARN  system - reload system.properties failed: file not found
+[2021-07-31T13:06:51,609] <launcher> WARN  system - reload system.properties.bk failed: file not found
+[2021-07-31T13:06:51,693] <launcher> INFO  system - Reporter UUID: a7604753-6372-4b62-8689-5d2b3375f9d5
+[2021-07-31T13:07:15,124] <localhost-startStop-1> INFO  Version - HV000001: Hibernate Validator 6.1.2.Final
+[2021-07-31T13:07:17,482] <localhost-startStop-1> INFO  system - ======================================================================
+[2021-07-31T13:07:17,486] <localhost-startStop-1> INFO  system - UniFi 6.2.26 (build atag_6.2.26_15319 - release/release) is started
+[2021-07-31T13:07:17,490] <localhost-startStop-1> INFO  system - ======================================================================
+[2021-07-31T13:07:17,498] <localhost-startStop-1> INFO  system - BASE dir:/usr/lib/unifi
+[2021-07-31T13:07:18,123] <localhost-startStop-1> INFO  system - Current System IP: 172.21.0.2
+[2021-07-31T13:07:18,127] <localhost-startStop-1> INFO  system - Hostname: a69066eb293e
+[2021-07-31T13:07:18,134] <localhost-startStop-1> INFO  system - ubic.env: prod
+[2021-07-31T13:07:22,957] <localhost-startStop-1> INFO  db     - waiting for db connection...
+[2021-07-31T13:07:26,471] <localhost-startStop-1> INFO  db     - Connecting to mongodb://localhost:27117
+[2021-07-31T13:07:32,088] <localhost-startStop-1> INFO  db     - setting mongodb features compatibility version to 3.6
+[2021-07-31T13:07:59,815] <localhost-startStop-1> INFO  db     - Connecting to mongodb://localhost:27117
+[2021-07-31T13:08:13,523] <localhost-startStop-1> INFO  productinfo - Using controller channel=RELEASE, firmware channel=RELEASE. Available controller channels=[RELEASE], available firmware channels=[RELEASE]. SSO is disabled.
+[2021-07-31T13:08:14,032] <localhost-startStop-1> WARN  dev    - failed to read /usr/lib/unifi/data/model_lifecycles.json - /usr/lib/unifi/data/model_lifecycles.json (No such file or directory)
+[2021-07-31T13:08:20,069] <localhost-startStop-1> INFO  webrtc - WebRTC library version: EvoStream Media Server (www.evostream.com) build v2.9.1 - Gladiator - (built for Debian-8.2.0-x86_64 on 2020-02-05T23:33:19.000) OpenSSL version: 1.1.1d usrsctp version: v0.1.2 compiled on machine: Linux debian-8-2-0-64 3.16.0-6-amd64 #1 SMP Debian 3.16.57-2 (2018-07-14) x86_64 GNU/Linux
+[2021-07-31T13:08:25,990] <localhost-startStop-1> INFO  sdn    - Removed fingerbank token
+[2021-07-31T13:08:27,067] <localhost-startStop-1> INFO  remote - Created directory: /usr/lib/unifi/logs/remote
+[2021-07-31T13:08:27,158] <localhost-startStop-1> INFO  remote - started remote log server
+[2021-07-31T13:11:24,354] <localhost-startStop-1> INFO  Version - HV000001: Hibernate Validator 6.1.2.Final
+[2021-07-31T13:11:27,775] <localhost-startStop-1> INFO  system - ======================================================================
+[2021-07-31T13:11:27,795] <localhost-startStop-1> INFO  system - UniFi 6.2.26 (build atag_6.2.26_15319 - release/release) is started
+[2021-07-31T13:11:27,800] <localhost-startStop-1> INFO  system - ======================================================================
+[2021-07-31T13:11:27,816] <localhost-startStop-1> INFO  system - BASE dir:/usr/lib/unifi
+[2021-07-31T13:11:28,389] <localhost-startStop-1> INFO  system - Current System IP: 172.21.0.2
+[2021-07-31T13:11:28,396] <localhost-startStop-1> INFO  system - Hostname: 6bfeb8574de4
+[2021-07-31T13:11:28,431] <localhost-startStop-1> INFO  system - ubic.env: prod
+[2021-07-31T13:11:32,723] <localhost-startStop-1> INFO  db     - waiting for db connection...
+[2021-07-31T13:11:36,737] <localhost-startStop-1> INFO  db     - Connecting to mongodb://localhost:27117
+[2021-07-31T13:12:02,997] <localhost-startStop-1> INFO  db     - setting mongodb features compatibility version to 3.6
+[2021-07-31T13:12:03,227] <localhost-startStop-1> INFO  db     - *** Factory Default *** Database exists. Clean it
+[2021-07-31T13:12:07,821] <localhost-startStop-1> INFO  db     - Connecting to mongodb://localhost:27117
+[2021-07-31T13:12:07,929] <localhost-startStop-1> INFO  stat   - *** Factory Default *** Stat Database exists. Clean it
+[2021-07-31T13:12:18,986] <localhost-startStop-1> INFO  productinfo - Using controller channel=RELEASE, firmware channel=RELEASE. Available controller channels=[RELEASE], available firmware channels=[RELEASE]. SSO is disabled.
+[2021-07-31T13:12:25,416] <localhost-startStop-1> INFO  webrtc - WebRTC library version: EvoStream Media Server (www.evostream.com) build v2.9.1 - Gladiator - (built for Debian-8.2.0-x86_64 on 2020-02-05T23:33:19.000) OpenSSL version: 1.1.1d usrsctp version: v0.1.2 compiled on machine: Linux debian-8-2-0-64 3.16.0-6-amd64 #1 SMP Debian 3.16.57-2 (2018-07-14) x86_64 GNU/Linux
+[2021-07-31T13:12:34,718] <localhost-startStop-1> INFO  sdn    - Removed fingerbank token
+[2021-07-31T13:12:36,103] <localhost-startStop-1> INFO  remote - Directory '/usr/lib/unifi/logs/remote' present
+[2021-07-31T13:12:36,129] <localhost-startStop-1> INFO  remote - started remote log server
+[2021-07-31T13:13:41,086] <autoupdate-check> INFO  productinfo - firmware[USC8] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,178] <autoupdate-check> INFO  productinfo - firmware[UXSDM] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,192] <autoupdate-check> INFO  productinfo - firmware[USXG] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,195] <autoupdate-check> INFO  productinfo - firmware[UXBSDM] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,204] <autoupdate-check> INFO  productinfo - firmware[US24P500] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,208] <autoupdate-check> INFO  productinfo - firmware[USF5P] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,214] <autoupdate-check> INFO  productinfo - firmware[U7IWP] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,216] <autoupdate-check> INFO  productinfo - firmware[ULTEPEU] new version (5.43.36.12724) is available
+[2021-07-31T13:13:41,218] <autoupdate-check> INFO  productinfo - firmware[US48P500] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,220] <autoupdate-check> INFO  productinfo - firmware[UAIW6] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,223] <autoupdate-check> INFO  productinfo - firmware[U2Sv2] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,225] <autoupdate-check> INFO  productinfo - firmware[U2HSR] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,226] <autoupdate-check> INFO  productinfo - firmware[S28150] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,228] <autoupdate-check> INFO  productinfo - firmware[US8P150] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,231] <autoupdate-check> INFO  productinfo - firmware[US48] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,280] <autoupdate-check> INFO  productinfo - firmware[UALR6] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,285] <autoupdate-check> INFO  productinfo - firmware[US48PRO] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,290] <autoupdate-check> INFO  productinfo - firmware[U2IW] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,295] <autoupdate-check> INFO  productinfo - firmware[UCKP] new version (2.1.11.a7986ca) is available
+[2021-07-31T13:13:41,313] <autoupdate-check> INFO  productinfo - firmware[US24PL2] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,351] <autoupdate-check> INFO  productinfo - firmware[S216150] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,413] <autoupdate-check> INFO  productinfo - firmware[BZ2LR] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,426] <autoupdate-check> INFO  productinfo - firmware[UAP6MP] new version (5.71.0.13252) is available
+[2021-07-31T13:13:41,441] <autoupdate-check> INFO  productinfo - firmware[UCKG2] new version (2.1.11.a7986ca) is available
+[2021-07-31T13:13:41,450] <autoupdate-check> INFO  productinfo - firmware[UDM] new version (1.10.0.3686) is available
+[2021-07-31T13:13:41,456] <autoupdate-check> INFO  productinfo - firmware[US24P250] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,470] <autoupdate-check> INFO  productinfo - firmware[U7HD] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,482] <autoupdate-check> INFO  productinfo - firmware[USL48] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,484] <autoupdate-check> INFO  productinfo - firmware[S248750] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,487] <autoupdate-check> INFO  productinfo - firmware[UAE6] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,497] <autoupdate-check> INFO  productinfo - firmware[USL24P] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,506] <autoupdate-check> INFO  productinfo - firmware[US24PRO2] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,511] <autoupdate-check> INFO  productinfo - firmware[UCXG] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,524] <autoupdate-check> INFO  productinfo - firmware[S224500] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,538] <autoupdate-check> INFO  productinfo - firmware[UFLHD] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,567] <autoupdate-check> INFO  productinfo - firmware[U7P] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,578] <autoupdate-check> INFO  productinfo - firmware[S224250] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,587] <autoupdate-check> INFO  productinfo - firmware[U5O] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,594] <autoupdate-check> INFO  productinfo - firmware[ULTE] new version (5.43.36.12724) is available
+[2021-07-31T13:13:41,600] <autoupdate-check> INFO  productinfo - firmware[USL48P] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,611] <autoupdate-check> INFO  productinfo - firmware[UGWXG] new version (4.4.55.5377109) is available
+[2021-07-31T13:13:41,621] <autoupdate-check> INFO  productinfo - firmware[US8P60] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,631] <autoupdate-check> INFO  productinfo - firmware[U7LT] new version (5.43.38.12731) is available
+[2021-07-31T13:13:41,640] <autoupdate-check> INFO  productinfo - firmware[U7SHD] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,649] <autoupdate-check> INFO  productinfo - firmware[US8] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,651] <autoupdate-check> INFO  productinfo - firmware[US24] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,654] <autoupdate-check> INFO  productinfo - firmware[US48PL2] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,663] <autoupdate-check> INFO  productinfo - firmware[UHDIW] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,665] <autoupdate-check> INFO  productinfo - firmware[UDMPRO] new version (1.10.0.3686) is available
+[2021-07-31T13:13:41,668] <autoupdate-check> INFO  productinfo - firmware[U7LR] new version (5.43.38.12731) is available
+[2021-07-31T13:13:41,669] <autoupdate-check> INFO  productinfo - firmware[U7PG2] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,673] <autoupdate-check> INFO  productinfo - firmware[UAM6] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,675] <autoupdate-check> INFO  productinfo - firmware[U7MSH] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,678] <autoupdate-check> INFO  productinfo - firmware[UGW3] new version (4.4.55.5377096) is available
+[2021-07-31T13:13:41,686] <autoupdate-check> INFO  productinfo - firmware[US48P750] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,690] <autoupdate-check> INFO  productinfo - firmware[US16P150] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,691] <autoupdate-check> INFO  productinfo - firmware[U2O] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,694] <autoupdate-check> INFO  productinfo - firmware[USPRPS] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,699] <autoupdate-check> INFO  productinfo - firmware[U7MP] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,702] <autoupdate-check> INFO  productinfo - firmware[US6XG150] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,706] <autoupdate-check> INFO  productinfo - firmware[U2Lv2] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,708] <autoupdate-check> INFO  productinfo - firmware[UGW4] new version (4.4.55.5377109) is available
+[2021-07-31T13:13:41,715] <autoupdate-check> INFO  productinfo - firmware[USL24] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,721] <autoupdate-check> INFO  productinfo - firmware[US24PRO] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,724] <autoupdate-check> INFO  productinfo - firmware[S248500] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,727] <autoupdate-check> INFO  productinfo - firmware[USL8LP] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,730] <autoupdate-check> INFO  productinfo - firmware[US48PRO2] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,732] <autoupdate-check> INFO  productinfo - firmware[U7IW] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,736] <autoupdate-check> INFO  productinfo - firmware[BZ2] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,741] <autoupdate-check> INFO  productinfo - firmware[USL16LP] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,743] <autoupdate-check> INFO  productinfo - firmware[UDMB] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,745] <autoupdate-check> INFO  productinfo - firmware[USL8A] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,747] <autoupdate-check> INFO  productinfo - firmware[U7NHD] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,749] <autoupdate-check> INFO  productinfo - firmware[USAGGPRO] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,751] <autoupdate-check> INFO  productinfo - firmware[US624P] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,754] <autoupdate-check> INFO  productinfo - firmware[U7EDU] new version (4.3.28.11361) is available
+[2021-07-31T13:13:41,757] <autoupdate-check> INFO  productinfo - firmware[UAL6] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,761] <autoupdate-check> INFO  productinfo - firmware[USL16P] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,763] <autoupdate-check> INFO  productinfo - firmware[USC8P450] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,765] <autoupdate-check> INFO  productinfo - firmware[UCK] new version (1.1.19.f4a17b0) is available
+[2021-07-31T13:13:41,767] <autoupdate-check> INFO  productinfo - firmware[USFXG] new version (5.64.8.13083) is available
+[2021-07-31T13:13:41,769] <autoupdate-check> INFO  productinfo - firmware[UALR6v2] new version (5.60.9.12980) is available
+[2021-07-31T13:13:41,730] <inform-1> INFO  scheduler - creating radio AI schedule task - site: Default cron: 0 3 * * *
+[2021-07-31T13:13:41,771] <autoupdate-check> INFO  productinfo - firmware[UBB] new version (2.0.8.42901) is available
+[2021-07-31T13:13:41,779] <autoupdate-check> INFO  productinfo - firmware[USMINI] new version (1.8.4.674) is available
+[2021-07-31T13:13:41,787] <autoupdate-check> INFO  productinfo - firmware[UP1] new version (2.1.1.472) is available
+[2021-07-31T13:14:00,046] <schedule-optimize> INFO  schedule - Not forcing multicast block on any SSIDs since none had >= 100 clients in last hour
+[2021-07-31T13:14:00,050] <schedule-optimize> WARN  schedule - No gateway device was detected so we cannot enable multicast block

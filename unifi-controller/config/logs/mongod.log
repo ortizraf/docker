@@ -1,0 +1,708 @@
+2021-07-31T13:07:26.505-0300 I CONTROL  [initandlisten] MongoDB starting : pid=345 port=27117 dbpath=/usr/lib/unifi/data/db 64-bit host=a69066eb293e
+2021-07-31T13:07:26.509-0300 I CONTROL  [initandlisten] db version v3.6.3
+2021-07-31T13:07:26.513-0300 I CONTROL  [initandlisten] git version: 9586e557d54ef70f9ca4b43c26892cd55257e1a5
+2021-07-31T13:07:26.516-0300 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+2021-07-31T13:07:26.519-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2021-07-31T13:07:26.523-0300 I CONTROL  [initandlisten] modules: none
+2021-07-31T13:07:26.527-0300 I CONTROL  [initandlisten] build environment:
+2021-07-31T13:07:26.530-0300 I CONTROL  [initandlisten]     distarch: x86_64
+2021-07-31T13:07:26.532-0300 I CONTROL  [initandlisten]     target_arch: x86_64
+2021-07-31T13:07:26.537-0300 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27117, unixDomainSocket: { pathPrefix: "/usr/lib/unifi/run" } }, processManagement: { pidFilePath: "/usr/lib/unifi/run/mongod.pid" }, storage: { dbPath: "/usr/lib/unifi/data/db" }, systemLog: { destination: "file", logAppend: true, logRotate: "reopen", path: "/usr/lib/unifi/logs/mongod.log" } }
+2021-07-31T13:07:26.611-0300 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3469M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2021-07-31T13:07:28.318-0300 I CONTROL  [initandlisten] 
+2021-07-31T13:07:28.345-0300 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-07-31T13:07:28.370-0300 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-07-31T13:07:28.375-0300 I CONTROL  [initandlisten] 
+2021-07-31T13:07:28.392-0300 I STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 88b83714-ce0c-4f0a-a9c7-8b12e42887cc
+2021-07-31T13:07:28.544-0300 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.6
+2021-07-31T13:07:28.815-0300 I STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 80baba8e-82ff-4483-be44-61a15ae98d4a
+2021-07-31T13:07:29.304-0300 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/usr/lib/unifi/data/db/diagnostic.data'
+2021-07-31T13:07:29.327-0300 I NETWORK  [initandlisten] waiting for connections on port 27117
+2021-07-31T13:07:29.515-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:48988 #1 (1 connection now open)
+2021-07-31T13:07:29.645-0300 I NETWORK  [conn1] received client metadata from 127.0.0.1:48988 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:07:30.211-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:48996 #2 (2 connections now open)
+2021-07-31T13:07:30.237-0300 I NETWORK  [conn2] received client metadata from 127.0.0.1:48996 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:07:30.935-0300 I COMMAND  [conn2] command ace command: eval { $eval: "db.serverStatus()", args: [], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:20125 locks:{ Global: { acquireCount: { r: 5, W: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 376ms
+2021-07-31T13:07:32.559-0300 I STORAGE  [conn2] createCollection: ace.heatmap with generated UUID: 6e1429f6-ac87-4d97-aa63-704435035370
+2021-07-31T13:07:32.778-0300 I INDEX    [conn2] build index on: ace.heatmap properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.heatmap" }
+2021-07-31T13:07:32.793-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:32.832-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:32.840-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "heatmap", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.heatmap" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 281ms
+2021-07-31T13:07:32.892-0300 I INDEX    [conn2] build index on: ace.heatmap properties: { v: 2, key: { map_id: 1, site_id: 1 }, name: "map_id_1_site_id_1", ns: "ace.heatmap" }
+2021-07-31T13:07:32.894-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:32.914-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:33.035-0300 I INDEX    [conn2] build index on: ace.heatmap properties: { v: 2, key: { type: 1, site_id: 1 }, name: "type_1_site_id_1", ns: "ace.heatmap" }
+2021-07-31T13:07:33.038-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:33.067-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:33.070-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "heatmap", indexes: [ { key: { type: 1, site_id: 1 }, name: "type_1_site_id_1", ns: "ace.heatmap" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 132ms
+2021-07-31T13:07:33.092-0300 I STORAGE  [conn2] createCollection: ace.voucher with generated UUID: 8dd7660e-322d-4a8b-bce3-ec32f8fdb25a
+2021-07-31T13:07:33.738-0300 I INDEX    [conn2] build index on: ace.voucher properties: { v: 2, key: { code: 1, site_id: 1 }, name: "code_1_site_id_1", ns: "ace.voucher" }
+2021-07-31T13:07:33.761-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:33.891-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:33.929-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "voucher", indexes: [ { key: { code: 1, site_id: 1 }, name: "code_1_site_id_1", ns: "ace.voucher" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 837ms
+2021-07-31T13:07:34.106-0300 I INDEX    [conn2] build index on: ace.voucher properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.voucher" }
+2021-07-31T13:07:34.111-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:34.142-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:34.146-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "voucher", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.voucher" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 164ms
+2021-07-31T13:07:34.213-0300 I INDEX    [conn2] build index on: ace.voucher properties: { v: 2, key: { create_time: 1, site_id: 1 }, name: "create_time_1_site_id_1", ns: "ace.voucher" }
+2021-07-31T13:07:34.216-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:34.251-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:34.258-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "voucher", indexes: [ { key: { create_time: 1, site_id: 1 }, name: "create_time_1_site_id_1", ns: "ace.voucher" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 100ms
+2021-07-31T13:07:34.348-0300 I INDEX    [conn2] build index on: ace.voucher properties: { v: 2, key: { end_time: 1, site_id: 1 }, name: "end_time_1_site_id_1", ns: "ace.voucher" }
+2021-07-31T13:07:34.351-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:34.555-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:34.563-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "voucher", indexes: [ { key: { end_time: 1, site_id: 1 }, name: "end_time_1_site_id_1", ns: "ace.voucher" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 296ms
+2021-07-31T13:07:34.617-0300 I STORAGE  [conn2] createCollection: ace.networkconf with generated UUID: aa2a4033-f449-4a06-8b5a-e90aca1173bf
+2021-07-31T13:07:34.816-0300 I INDEX    [conn2] build index on: ace.networkconf properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.networkconf" }
+2021-07-31T13:07:34.820-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:34.855-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:34.865-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "networkconf", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.networkconf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 248ms
+2021-07-31T13:07:34.917-0300 I INDEX    [conn2] build index on: ace.networkconf properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.networkconf" }
+2021-07-31T13:07:34.919-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:34.939-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:34.963-0300 I STORAGE  [conn2] createCollection: ace.rogueknown with generated UUID: d2c3d6ed-01e7-47f1-b77b-81430e0bfb2c
+2021-07-31T13:07:35.127-0300 I INDEX    [conn2] build index on: ace.rogueknown properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.rogueknown" }
+2021-07-31T13:07:35.129-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:35.149-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:35.153-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "rogueknown", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.rogueknown" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 189ms
+2021-07-31T13:07:35.197-0300 I STORAGE  [conn2] createCollection: ace.setting with generated UUID: 57b37dfe-0184-47f2-b851-2a04c248ded4
+2021-07-31T13:07:35.317-0300 I INDEX    [conn2] build index on: ace.setting properties: { v: 2, key: { key: 1, site_id: 1 }, name: "key_1_site_id_1", ns: "ace.setting" }
+2021-07-31T13:07:35.320-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:35.337-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:35.340-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "setting", indexes: [ { key: { key: 1, site_id: 1 }, name: "key_1_site_id_1", ns: "ace.setting" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 142ms
+2021-07-31T13:07:35.375-0300 I INDEX    [conn2] build index on: ace.setting properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.setting" }
+2021-07-31T13:07:35.377-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:35.403-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:35.418-0300 I STORAGE  [conn2] createCollection: ace.payment with generated UUID: 2296153a-9fa9-4dc8-af8b-8dee999b47d8
+2021-07-31T13:07:35.883-0300 I INDEX    [conn2] build index on: ace.payment properties: { v: 2, key: { within: 1, site_id: 1 }, name: "within_1_site_id_1", ns: "ace.payment" }
+2021-07-31T13:07:35.887-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:35.924-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:35.927-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "payment", indexes: [ { key: { within: 1, site_id: 1 }, name: "within_1_site_id_1", ns: "ace.payment" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 508ms
+2021-07-31T13:07:35.988-0300 I INDEX    [conn2] build index on: ace.payment properties: { v: 2, key: { time: 1, site_id: 1 }, name: "time_1_site_id_1", ns: "ace.payment" }
+2021-07-31T13:07:35.990-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:36.013-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:36.062-0300 I INDEX    [conn2] build index on: ace.payment properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.payment" }
+2021-07-31T13:07:36.064-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:36.092-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:36.110-0300 I STORAGE  [conn2] createCollection: ace.crashlog with generated UUID: d4093c94-7ca2-44c3-9f05-5fd56369c257
+2021-07-31T13:07:36.219-0300 I INDEX    [conn2] build index on: ace.crashlog properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.crashlog" }
+2021-07-31T13:07:36.224-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:36.255-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:36.259-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "crashlog", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.crashlog" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 149ms
+2021-07-31T13:07:36.277-0300 I STORAGE  [conn2] createCollection: ace.tag with generated UUID: 7759c4b0-3699-49af-b100-5946a4383763
+2021-07-31T13:07:36.444-0300 I INDEX    [conn2] build index on: ace.tag properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.tag" }
+2021-07-31T13:07:36.447-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:36.540-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:36.547-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "tag", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.tag" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 270ms
+2021-07-31T13:07:36.566-0300 I STORAGE  [conn2] createCollection: ace.spatialrecord with generated UUID: e5237594-d03a-45f0-b3a2-400bd2a2840e
+2021-07-31T13:07:36.841-0300 I INDEX    [conn2] build index on: ace.spatialrecord properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.spatialrecord" }
+2021-07-31T13:07:36.844-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:36.882-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:36.887-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "spatialrecord", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.spatialrecord" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 321ms
+2021-07-31T13:07:36.914-0300 I STORAGE  [conn2] createCollection: ace.verification with generated UUID: 993aad91-5223-44be-ac4f-dac2e00399f1
+2021-07-31T13:07:37.077-0300 I INDEX    [conn2] build index on: ace.verification properties: { v: 2, key: { email: 1 }, name: "email_1", ns: "ace.verification" }
+2021-07-31T13:07:37.082-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:37.166-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:37.177-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "verification", indexes: [ { key: { email: 1 }, name: "email_1", ns: "ace.verification" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 263ms
+2021-07-31T13:07:37.251-0300 I INDEX    [conn2] build index on: ace.verification properties: { v: 2, key: { token: 1 }, name: "token_1", ns: "ace.verification" }
+2021-07-31T13:07:37.256-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:37.304-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:37.308-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "verification", indexes: [ { key: { token: 1 }, name: "token_1", ns: "ace.verification" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 121ms
+2021-07-31T13:07:37.347-0300 I STORAGE  [conn2] createCollection: ace.rogue with generated UUID: 7774b6d8-8adb-4b8d-9062-6e8f18deb455
+2021-07-31T13:07:37.536-0300 I INDEX    [conn2] build index on: ace.rogue properties: { v: 2, key: { ap_mac: 1, site_id: 1 }, name: "ap_mac_1_site_id_1", ns: "ace.rogue" }
+2021-07-31T13:07:37.539-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:37.587-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:37.591-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "rogue", indexes: [ { key: { ap_mac: 1, site_id: 1 }, name: "ap_mac_1_site_id_1", ns: "ace.rogue" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 243ms
+2021-07-31T13:07:37.671-0300 I INDEX    [conn2] build index on: ace.rogue properties: { v: 2, key: { bssid: 1, site_id: 1 }, name: "bssid_1_site_id_1", ns: "ace.rogue" }
+2021-07-31T13:07:37.679-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:37.718-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:37.721-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "rogue", indexes: [ { key: { bssid: 1, site_id: 1 }, name: "bssid_1_site_id_1", ns: "ace.rogue" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 114ms
+2021-07-31T13:07:37.783-0300 I INDEX    [conn2] build index on: ace.rogue properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.rogue" }
+2021-07-31T13:07:37.785-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:37.812-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:38.264-0300 I INDEX    [conn2] build index on: ace.rogue properties: { v: 2, key: { rssi: 1, site_id: 1 }, name: "rssi_1_site_id_1", ns: "ace.rogue" }
+2021-07-31T13:07:38.290-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:38.373-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:38.406-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "rogue", indexes: [ { key: { rssi: 1, site_id: 1 }, name: "rssi_1_site_id_1", ns: "ace.rogue" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 581ms
+2021-07-31T13:07:38.569-0300 I INDEX    [conn2] build index on: ace.rogue properties: { v: 2, key: { last_seen: 1, site_id: 1 }, name: "last_seen_1_site_id_1", ns: "ace.rogue" }
+2021-07-31T13:07:38.588-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:38.708-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:38.715-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "rogue", indexes: [ { key: { last_seen: 1, site_id: 1 }, name: "last_seen_1_site_id_1", ns: "ace.rogue" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 283ms
+2021-07-31T13:07:38.741-0300 I STORAGE  [conn2] createCollection: ace.dpiapp with generated UUID: ef5ce543-1205-49e9-8e59-876bc0a5af42
+2021-07-31T13:07:38.862-0300 I INDEX    [conn2] build index on: ace.dpiapp properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.dpiapp" }
+2021-07-31T13:07:38.864-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:38.887-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:38.890-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "dpiapp", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.dpiapp" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 149ms
+2021-07-31T13:07:38.908-0300 I STORAGE  [conn2] createCollection: ace.virtualdevice with generated UUID: c92783c2-b0b7-4c1d-98ce-f5bc2d901b43
+2021-07-31T13:07:39.009-0300 I INDEX    [conn2] build index on: ace.virtualdevice properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.virtualdevice" }
+2021-07-31T13:07:39.012-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:39.068-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:39.077-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "virtualdevice", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.virtualdevice" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 168ms
+2021-07-31T13:07:39.108-0300 I STORAGE  [conn2] createCollection: ace.firewallgroup with generated UUID: c98612c5-4052-48db-9821-1e620a29f5d7
+2021-07-31T13:07:39.295-0300 I INDEX    [conn2] build index on: ace.firewallgroup properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.firewallgroup" }
+2021-07-31T13:07:39.297-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:39.332-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:39.335-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "firewallgroup", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.firewallgroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 226ms
+2021-07-31T13:07:39.392-0300 I INDEX    [conn2] build index on: ace.firewallgroup properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.firewallgroup" }
+2021-07-31T13:07:39.394-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:39.415-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:39.439-0300 I STORAGE  [conn2] createCollection: ace.hotspotop with generated UUID: 1247379f-11dc-4b08-a8ea-22cca7f49cc3
+2021-07-31T13:07:39.570-0300 I INDEX    [conn2] build index on: ace.hotspotop properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.hotspotop" }
+2021-07-31T13:07:39.584-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:39.659-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:39.663-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "hotspotop", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.hotspotop" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 223ms
+2021-07-31T13:07:39.837-0300 I INDEX    [conn2] build index on: ace.hotspotop properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.hotspotop" }
+2021-07-31T13:07:39.850-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:39.906-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:39.910-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "hotspotop", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.hotspotop" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 231ms
+2021-07-31T13:07:39.932-0300 I STORAGE  [conn2] createCollection: ace.portforward with generated UUID: ad1ad9fb-7144-4e69-8ccd-7dd99c3c4536
+2021-07-31T13:07:40.159-0300 I INDEX    [conn2] build index on: ace.portforward properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.portforward" }
+2021-07-31T13:07:40.174-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:40.250-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:40.261-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "portforward", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.portforward" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 329ms
+2021-07-31T13:07:40.375-0300 I INDEX    [conn2] build index on: ace.portforward properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.portforward" }
+2021-07-31T13:07:40.382-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:40.467-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:40.478-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "portforward", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.portforward" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 189ms
+2021-07-31T13:07:40.509-0300 I STORAGE  [conn2] createCollection: ace.dhcpoption with generated UUID: 211a8041-5508-497a-bf0c-d1d01a2be7e0
+2021-07-31T13:07:40.712-0300 I INDEX    [conn2] build index on: ace.dhcpoption properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.dhcpoption" }
+2021-07-31T13:07:40.724-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:40.756-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:40.761-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "dhcpoption", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.dhcpoption" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 251ms
+2021-07-31T13:07:40.772-0300 I STORAGE  [conn2] createCollection: ace.task with generated UUID: a0f05619-0b3f-4665-948f-e6d4929f402b
+2021-07-31T13:07:40.908-0300 I INDEX    [conn2] build index on: ace.task properties: { v: 2, key: { device_id: 1 }, name: "device_id_1", ns: "ace.task" }
+2021-07-31T13:07:40.910-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:40.941-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:40.951-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "task", indexes: [ { key: { device_id: 1 }, name: "device_id_1", ns: "ace.task" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 178ms
+2021-07-31T13:07:41.032-0300 I INDEX    [conn2] build index on: ace.task properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.task" }
+2021-07-31T13:07:41.035-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:41.070-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:41.072-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "task", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.task" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 108ms
+2021-07-31T13:07:41.090-0300 I STORAGE  [conn2] createCollection: ace.usergroup with generated UUID: 4f7f7d12-14a5-460e-8f8e-7504b5d93f73
+2021-07-31T13:07:41.293-0300 I INDEX    [conn2] build index on: ace.usergroup properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.usergroup" }
+2021-07-31T13:07:41.298-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:41.338-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:41.342-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "usergroup", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.usergroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 252ms
+2021-07-31T13:07:41.366-0300 I STORAGE  [conn2] createCollection: ace.guest with generated UUID: 32a0e28d-7655-4163-91ee-4f554c955580
+2021-07-31T13:07:41.511-0300 I INDEX    [conn2] build index on: ace.guest properties: { v: 2, key: { end: 1, site_id: 1 }, name: "end_1_site_id_1", ns: "ace.guest" }
+2021-07-31T13:07:41.515-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:41.572-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:41.577-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "guest", indexes: [ { key: { end: 1, site_id: 1 }, name: "end_1_site_id_1", ns: "ace.guest" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 210ms
+2021-07-31T13:07:41.682-0300 I INDEX    [conn2] build index on: ace.guest properties: { v: 2, key: { authorized_by: 1, site_id: 1 }, name: "authorized_by_1_site_id_1", ns: "ace.guest" }
+2021-07-31T13:07:41.702-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:41.774-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:41.780-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "guest", indexes: [ { key: { authorized_by: 1, site_id: 1 }, name: "authorized_by_1_site_id_1", ns: "ace.guest" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 195ms
+2021-07-31T13:07:41.871-0300 I INDEX    [conn2] build index on: ace.guest properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.guest" }
+2021-07-31T13:07:41.873-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:41.903-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:41.906-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "guest", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.guest" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 106ms
+2021-07-31T13:07:41.958-0300 I INDEX    [conn2] build index on: ace.guest properties: { v: 2, key: { mac: 1, site_id: 1 }, name: "mac_1_site_id_1", ns: "ace.guest" }
+2021-07-31T13:07:41.961-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:41.986-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.040-0300 I INDEX    [conn2] build index on: ace.guest properties: { v: 2, key: { start: 1, site_id: 1 }, name: "start_1_site_id_1", ns: "ace.guest" }
+2021-07-31T13:07:42.042-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:42.071-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.120-0300 I INDEX    [conn2] build index on: ace.guest properties: { v: 2, key: { unauthorized_by: 1, site_id: 1 }, name: "unauthorized_by_1_site_id_1", ns: "ace.guest" }
+2021-07-31T13:07:42.123-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:42.142-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.170-0300 I STORAGE  [conn2] createCollection: ace.device with generated UUID: bcaf399b-0edd-464b-bd53-b82214215fc9
+2021-07-31T13:07:42.303-0300 I INDEX    [conn2] build index on: ace.device properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.device" }
+2021-07-31T13:07:42.307-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:42.336-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.338-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "device", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.device" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 167ms
+2021-07-31T13:07:42.386-0300 I INDEX    [conn2] build index on: ace.device properties: { v: 2, key: { mac: 1, site_id: 1 }, name: "mac_1_site_id_1", ns: "ace.device" }
+2021-07-31T13:07:42.388-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:42.413-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.436-0300 I STORAGE  [conn2] createCollection: ace.admin with generated UUID: ecdda1d6-df41-495e-ae86-a5d6bbcb1bae
+2021-07-31T13:07:42.611-0300 I INDEX    [conn2] build index on: ace.admin properties: { v: 2, key: { email: 1 }, name: "email_1", ns: "ace.admin" }
+2021-07-31T13:07:42.614-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:42.665-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.676-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "admin", indexes: [ { key: { email: 1 }, name: "email_1", ns: "ace.admin" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 239ms
+2021-07-31T13:07:42.699-0300 I STORAGE  [conn2] createCollection: ace.privilege with generated UUID: 89a8eb2d-8182-40cf-945c-fbd5122eefde
+2021-07-31T13:07:42.826-0300 I INDEX    [conn2] build index on: ace.privilege properties: { v: 2, key: { admin_id: 1 }, name: "admin_id_1", ns: "ace.privilege" }
+2021-07-31T13:07:42.828-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:42.853-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:42.859-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "privilege", indexes: [ { key: { admin_id: 1 }, name: "admin_id_1", ns: "ace.privilege" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 159ms
+2021-07-31T13:07:42.889-0300 I STORAGE  [conn2] createCollection: ace.radiusprofile with generated UUID: db1f4ada-776c-4160-b93b-1b13cabda4e4
+2021-07-31T13:07:43.007-0300 I INDEX    [conn2] build index on: ace.radiusprofile properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.radiusprofile" }
+2021-07-31T13:07:43.010-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:43.035-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:43.038-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "radiusprofile", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.radiusprofile" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 149ms
+2021-07-31T13:07:43.101-0300 I INDEX    [conn2] build index on: ace.radiusprofile properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.radiusprofile" }
+2021-07-31T13:07:43.104-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:43.132-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:43.155-0300 I STORAGE  [conn2] createCollection: ace.scheduletask with generated UUID: b9ca735e-5fce-4582-b1e3-50b4adf57d28
+2021-07-31T13:07:43.281-0300 I INDEX    [conn2] build index on: ace.scheduletask properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.scheduletask" }
+2021-07-31T13:07:43.284-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:43.308-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:43.312-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "scheduletask", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.scheduletask" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 156ms
+2021-07-31T13:07:43.334-0300 I STORAGE  [conn2] createCollection: ace.routing with generated UUID: 046aa738-e54a-4ae7-8686-506d69765ffd
+2021-07-31T13:07:43.479-0300 I INDEX    [conn2] build index on: ace.routing properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.routing" }
+2021-07-31T13:07:43.484-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:43.536-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:43.561-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "routing", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.routing" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 226ms
+2021-07-31T13:07:43.674-0300 I INDEX    [conn2] build index on: ace.routing properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.routing" }
+2021-07-31T13:07:43.676-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:43.717-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:43.722-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "routing", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.routing" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 153ms
+2021-07-31T13:07:43.738-0300 I STORAGE  [conn2] createCollection: ace.portconf with generated UUID: aef04d2a-dc1a-4dd5-bd45-fcddbda694da
+2021-07-31T13:07:43.943-0300 I INDEX    [conn2] build index on: ace.portconf properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.portconf" }
+2021-07-31T13:07:43.946-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:44.032-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:44.049-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "portconf", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.portconf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 311ms
+2021-07-31T13:07:44.062-0300 I STORAGE  [conn2] createCollection: ace.featuremigration with generated UUID: cf4a5e74-4a10-4e86-a855-c4345cf05bd8
+2021-07-31T13:07:44.493-0300 I INDEX    [conn2] build index on: ace.featuremigration properties: { v: 2, key: { name: 1 }, name: "name_1", ns: "ace.featuremigration" }
+2021-07-31T13:07:44.496-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:44.567-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:44.578-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "featuremigration", indexes: [ { key: { name: 1 }, name: "name_1", ns: "ace.featuremigration" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 515ms
+2021-07-31T13:07:44.595-0300 I STORAGE  [conn2] createCollection: ace.alarm with generated UUID: c537a808-a0b5-4e82-bf66-396d8118e3a5
+2021-07-31T13:07:45.050-0300 I INDEX    [conn2] build index on: ace.alarm properties: { v: 2, key: { archived: 1 }, name: "archived_1", ns: "ace.alarm" }
+2021-07-31T13:07:45.053-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:45.083-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:45.088-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "alarm", indexes: [ { key: { archived: 1 }, name: "archived_1", ns: "ace.alarm" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 492ms
+2021-07-31T13:07:45.170-0300 I INDEX    [conn2] build index on: ace.alarm properties: { v: 2, key: { datetime: 1 }, name: "datetime_1", ns: "ace.alarm" }
+2021-07-31T13:07:45.173-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:45.221-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:45.228-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "alarm", indexes: [ { key: { datetime: 1 }, name: "datetime_1", ns: "ace.alarm" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 125ms
+2021-07-31T13:07:45.259-0300 I STORAGE  [conn2] createCollection: ace.firewallrule with generated UUID: b36f3972-8a2a-45a6-b7de-a38234af33f1
+2021-07-31T13:07:45.558-0300 I INDEX    [conn2] build index on: ace.firewallrule properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.firewallrule" }
+2021-07-31T13:07:45.575-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:45.609-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:45.613-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "firewallrule", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.firewallrule" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 354ms
+2021-07-31T13:07:45.668-0300 I INDEX    [conn2] build index on: ace.firewallrule properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.firewallrule" }
+2021-07-31T13:07:45.670-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:45.719-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:45.726-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "firewallrule", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.firewallrule" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 101ms
+2021-07-31T13:07:45.740-0300 I STORAGE  [conn2] createCollection: ace.event with generated UUID: eca4f5e9-4262-4931-b4ed-c1ca7ed2e427
+2021-07-31T13:07:45.896-0300 I INDEX    [conn2] build index on: ace.event properties: { v: 2, key: { datetime: 1, site_id: 1 }, name: "datetime_1_site_id_1", ns: "ace.event" }
+2021-07-31T13:07:45.899-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:45.929-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:45.940-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "event", indexes: [ { key: { datetime: 1, site_id: 1 }, name: "datetime_1_site_id_1", ns: "ace.event" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 200ms
+2021-07-31T13:07:46.018-0300 I INDEX    [conn2] build index on: ace.event properties: { v: 2, key: { subsystem: 1, site_id: 1 }, name: "subsystem_1_site_id_1", ns: "ace.event" }
+2021-07-31T13:07:46.022-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.057-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.066-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "event", indexes: [ { key: { subsystem: 1, site_id: 1 }, name: "subsystem_1_site_id_1", ns: "ace.event" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 116ms
+2021-07-31T13:07:46.130-0300 I INDEX    [conn2] build index on: ace.event properties: { v: 2, key: { key: 1, site_id: 1 }, name: "key_1_site_id_1", ns: "ace.event" }
+2021-07-31T13:07:46.132-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.163-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.233-0300 I INDEX    [conn2] build index on: ace.event properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.event" }
+2021-07-31T13:07:46.243-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.269-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.309-0300 I INDEX    [conn2] build index on: ace.event properties: { v: 2, key: { datetime: 1, key: 1 }, name: "datetime_1_key_1", ns: "ace.event" }
+2021-07-31T13:07:46.313-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.340-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.357-0300 I STORAGE  [conn2] createCollection: ace.wlangroup with generated UUID: dfeb4471-7bef-432d-9013-3d12ee89417d
+2021-07-31T13:07:46.496-0300 I INDEX    [conn2] build index on: ace.wlangroup properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.wlangroup" }
+2021-07-31T13:07:46.499-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.554-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.557-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wlangroup", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.wlangroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 200ms
+2021-07-31T13:07:46.647-0300 I INDEX    [conn2] build index on: ace.wlangroup properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.wlangroup" }
+2021-07-31T13:07:46.649-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.748-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.755-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wlangroup", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.wlangroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 178ms
+2021-07-31T13:07:46.769-0300 I STORAGE  [conn2] createCollection: ace.map with generated UUID: 03c7c658-9b75-4879-99a3-59ff54a03f73
+2021-07-31T13:07:46.905-0300 I INDEX    [conn2] build index on: ace.map properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.map" }
+2021-07-31T13:07:46.908-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:46.945-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:46.949-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "map", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.map" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 179ms
+2021-07-31T13:07:46.964-0300 I STORAGE  [conn2] createCollection: ace.stat with generated UUID: 4c3f94db-d828-4e5d-99cf-7b11c5266b81
+2021-07-31T13:07:47.077-0300 I INDEX    [conn2] build index on: ace.stat properties: { v: 2, key: { datetime: 1, site_id: 1 }, name: "datetime_1_site_id_1", ns: "ace.stat" }
+2021-07-31T13:07:47.079-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.121-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.124-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "stat", indexes: [ { key: { datetime: 1, site_id: 1 }, name: "datetime_1_site_id_1", ns: "ace.stat" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 159ms
+2021-07-31T13:07:47.195-0300 I INDEX    [conn2] build index on: ace.stat properties: { v: 2, key: { wlan: 1, site_id: 1 }, name: "wlan_1_site_id_1", ns: "ace.stat" }
+2021-07-31T13:07:47.204-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.230-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.250-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "stat", indexes: [ { key: { wlan: 1, site_id: 1 }, name: "wlan_1_site_id_1", ns: "ace.stat" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 121ms
+2021-07-31T13:07:47.303-0300 I INDEX    [conn2] build index on: ace.stat properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.stat" }
+2021-07-31T13:07:47.309-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.332-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.377-0300 I INDEX    [conn2] build index on: ace.stat properties: { v: 2, key: { ap: 1, site_id: 1 }, name: "ap_1_site_id_1", ns: "ace.stat" }
+2021-07-31T13:07:47.380-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.409-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.468-0300 I INDEX    [conn2] build index on: ace.stat properties: { v: 2, key: { user: 1, site_id: 1 }, name: "user_1_site_id_1", ns: "ace.stat" }
+2021-07-31T13:07:47.470-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.492-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.534-0300 I INDEX    [conn2] build index on: ace.stat properties: { v: 2, key: { o: 1, site_id: 1 }, name: "o_1_site_id_1", ns: "ace.stat" }
+2021-07-31T13:07:47.538-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.558-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.573-0300 I STORAGE  [conn2] createCollection: ace.portalfile with generated UUID: 8cc08a53-c093-4b51-80a8-38aa0612e12d
+2021-07-31T13:07:47.711-0300 I INDEX    [conn2] build index on: ace.portalfile properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.portalfile" }
+2021-07-31T13:07:47.721-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.757-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.763-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "portalfile", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.portalfile" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 189ms
+2021-07-31T13:07:47.772-0300 I STORAGE  [conn2] createCollection: ace.wlanconf with generated UUID: dcfc2080-0e01-4b1e-88a9-bdebc15abd71
+2021-07-31T13:07:47.910-0300 I INDEX    [conn2] build index on: ace.wlanconf properties: { v: 2, key: { usergroup_id: 1, site_id: 1 }, name: "usergroup_id_1_site_id_1", ns: "ace.wlanconf" }
+2021-07-31T13:07:47.913-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:47.963-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:47.971-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wlanconf", indexes: [ { key: { usergroup_id: 1, site_id: 1 }, name: "usergroup_id_1_site_id_1", ns: "ace.wlanconf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 199ms
+2021-07-31T13:07:48.234-0300 I INDEX    [conn2] build index on: ace.wlanconf properties: { v: 2, key: { attr_hidden_id: 1, site_id: 1 }, name: "attr_hidden_id_1_site_id_1", ns: "ace.wlanconf" }
+2021-07-31T13:07:48.251-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:48.331-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:48.343-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wlanconf", indexes: [ { key: { attr_hidden_id: 1, site_id: 1 }, name: "attr_hidden_id_1_site_id_1", ns: "ace.wlanconf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 361ms
+2021-07-31T13:07:48.488-0300 I INDEX    [conn2] build index on: ace.wlanconf properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.wlanconf" }
+2021-07-31T13:07:48.496-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:48.537-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:48.545-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wlanconf", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.wlanconf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 196ms
+2021-07-31T13:07:48.728-0300 I INDEX    [conn2] build index on: ace.wlanconf properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.wlanconf" }
+2021-07-31T13:07:48.739-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:48.791-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:48.797-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wlanconf", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.wlanconf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 246ms
+2021-07-31T13:07:48.832-0300 I STORAGE  [conn2] createCollection: ace.ipsalert with generated UUID: d1cc84f0-7ea3-49c2-87d1-c2d4f934d4ce
+2021-07-31T13:07:49.019-0300 I INDEX    [conn2] build index on: ace.ipsalert properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.ipsalert" }
+2021-07-31T13:07:49.022-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:49.042-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:49.045-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "ipsalert", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.ipsalert" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 214ms
+2021-07-31T13:07:49.056-0300 I STORAGE  [conn2] createCollection: ace.heatmappoint with generated UUID: 6fd5f325-0254-47b1-b4da-26f1a9a7043c
+2021-07-31T13:07:49.171-0300 I INDEX    [conn2] build index on: ace.heatmappoint properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.heatmappoint" }
+2021-07-31T13:07:49.172-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:49.204-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:49.207-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "heatmappoint", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.heatmappoint" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 150ms
+2021-07-31T13:07:49.248-0300 I INDEX    [conn2] build index on: ace.heatmappoint properties: { v: 2, key: { heatmap_id: 1, site_id: 1 }, name: "heatmap_id_1_site_id_1", ns: "ace.heatmappoint" }
+2021-07-31T13:07:49.251-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:49.275-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:49.290-0300 I STORAGE  [conn2] createCollection: ace.site with generated UUID: 6a50005b-3d7d-4436-b868-ce31169c4ac0
+2021-07-31T13:07:49.433-0300 I INDEX    [conn2] build index on: ace.site properties: { v: 2, key: { name: 1 }, name: "name_1", ns: "ace.site" }
+2021-07-31T13:07:49.436-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:49.464-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:49.469-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "site", indexes: [ { key: { name: 1 }, name: "name_1", ns: "ace.site" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 179ms
+2021-07-31T13:07:49.553-0300 I INDEX    [conn2] build index on: ace.site properties: { v: 2, key: { attr_hidden_id: 1 }, name: "attr_hidden_id_1", ns: "ace.site" }
+2021-07-31T13:07:49.556-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:49.768-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:49.779-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "site", indexes: [ { key: { attr_hidden_id: 1 }, name: "attr_hidden_id_1", ns: "ace.site" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 302ms
+2021-07-31T13:07:49.825-0300 I STORAGE  [conn2] createCollection: ace.ssooauthtoken with generated UUID: e3dbb979-77d3-405f-83a2-258d203faca7
+2021-07-31T13:07:50.040-0300 I INDEX    [conn2] build index on: ace.ssooauthtoken properties: { v: 2, key: { ssooauthtoken: 1 }, name: "ssooauthtoken_1", ns: "ace.ssooauthtoken" }
+2021-07-31T13:07:50.042-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:50.075-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:50.079-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "ssooauthtoken", indexes: [ { key: { ssooauthtoken: 1 }, name: "ssooauthtoken_1", ns: "ace.ssooauthtoken" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 253ms
+2021-07-31T13:07:50.159-0300 I STORAGE  [conn2] createCollection: ace.hotspot2conf with generated UUID: 4e0d8fd8-e99f-4e35-83c6-2b85b93e2206
+2021-07-31T13:07:50.351-0300 I INDEX    [conn2] build index on: ace.hotspot2conf properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.hotspot2conf" }
+2021-07-31T13:07:50.353-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:50.379-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:50.388-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "hotspot2conf", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.hotspot2conf" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 229ms
+2021-07-31T13:07:50.410-0300 I STORAGE  [conn2] createCollection: ace.dynamicdns with generated UUID: 585866df-38e1-4af0-9035-ff165afdf87b
+2021-07-31T13:07:50.584-0300 I INDEX    [conn2] build index on: ace.dynamicdns properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.dynamicdns" }
+2021-07-31T13:07:50.592-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:50.644-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:50.647-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "dynamicdns", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.dynamicdns" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 237ms
+2021-07-31T13:07:50.694-0300 I STORAGE  [conn2] createCollection: ace.hotspotpackage with generated UUID: bcafa71f-1c3c-4adb-8855-4b6813196f29
+2021-07-31T13:07:50.975-0300 I INDEX    [conn2] build index on: ace.hotspotpackage properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.hotspotpackage" }
+2021-07-31T13:07:50.982-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:51.032-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:51.048-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "hotspotpackage", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.hotspotpackage" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 354ms
+2021-07-31T13:07:51.169-0300 I INDEX    [conn2] build index on: ace.hotspotpackage properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.hotspotpackage" }
+2021-07-31T13:07:51.172-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:51.208-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:51.212-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "hotspotpackage", indexes: [ { key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.hotspotpackage" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 151ms
+2021-07-31T13:07:51.245-0300 I STORAGE  [conn2] createCollection: ace.broadcastgroup with generated UUID: 101bf02a-e8a5-4c87-bc66-6d172cbfa22d
+2021-07-31T13:07:51.464-0300 I INDEX    [conn2] build index on: ace.broadcastgroup properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.broadcastgroup" }
+2021-07-31T13:07:51.478-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:51.550-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:51.555-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "broadcastgroup", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.broadcastgroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 309ms
+2021-07-31T13:07:51.599-0300 I STORAGE  [conn2] createCollection: ace.mediafile with generated UUID: ec44aab1-a6d3-4173-9e2d-85b4f569f0b4
+2021-07-31T13:07:52.022-0300 I INDEX    [conn2] build index on: ace.mediafile properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.mediafile" }
+2021-07-31T13:07:52.026-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:52.081-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:52.084-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "mediafile", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.mediafile" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 485ms
+2021-07-31T13:07:52.105-0300 I STORAGE  [conn2] createCollection: ace.user with generated UUID: 02f7c2a7-1613-4138-a17b-64123ab712d8
+2021-07-31T13:07:52.298-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { use_fixedip: 1, site_id: 1 }, name: "use_fixedip_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:52.301-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:52.333-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:52.339-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { use_fixedip: 1, site_id: 1 }, name: "use_fixedip_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 233ms
+2021-07-31T13:07:52.409-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { noted: 1, site_id: 1 }, name: "noted_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:52.412-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:52.442-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:52.450-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { noted: 1, site_id: 1 }, name: "noted_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 105ms
+2021-07-31T13:07:52.526-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { fixed_ap: 1, site_id: 1 }, name: "fixed_ap_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:52.528-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:52.568-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:52.574-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { fixed_ap: 1, site_id: 1 }, name: "fixed_ap_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 116ms
+2021-07-31T13:07:52.680-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { is_guest: 1, site_id: 1 }, name: "is_guest_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:52.683-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:52.751-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:52.759-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { is_guest: 1, site_id: 1 }, name: "is_guest_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 173ms
+2021-07-31T13:07:52.866-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { blocked: 1, site_id: 1 }, name: "blocked_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:52.870-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:52.914-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:52.917-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { blocked: 1, site_id: 1 }, name: "blocked_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 142ms
+2021-07-31T13:07:52.996-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.user" }
+2021-07-31T13:07:53.004-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:53.069-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:53.078-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 150ms
+2021-07-31T13:07:53.234-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { mac: 1, site_id: 1 }, name: "mac_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:53.249-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:53.358-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:53.388-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { mac: 1, site_id: 1 }, name: "mac_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 304ms
+2021-07-31T13:07:53.567-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { network_id: 1, site_id: 1 }, name: "network_id_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:53.577-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:53.671-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:53.681-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { network_id: 1, site_id: 1 }, name: "network_id_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 277ms
+2021-07-31T13:07:53.790-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { blocked: 1, use_fixedip: 1, noted: 1, last_seen: 1, first_seen: 1 }, name: "blocked_1_use_fixedip_1_noted_1_last_seen_1_first_seen_1", ns: "ace.user" }
+2021-07-31T13:07:53.807-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:53.995-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:53.999-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { blocked: 1, use_fixedip: 1, noted: 1, last_seen: 1, first_seen: 1 }, name: "blocked_1_use_fixedip_1_noted_1_last_seen_1_first_seen_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 300ms
+2021-07-31T13:07:54.167-0300 I INDEX    [conn2] build index on: ace.user properties: { v: 2, key: { last_seen: 1, site_id: 1 }, name: "last_seen_1_site_id_1", ns: "ace.user" }
+2021-07-31T13:07:54.171-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:54.242-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:54.261-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "user", indexes: [ { key: { last_seen: 1, site_id: 1 }, name: "last_seen_1_site_id_1", ns: "ace.user" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 230ms
+2021-07-31T13:07:54.275-0300 I STORAGE  [conn2] createCollection: ace.wall with generated UUID: 47235c86-c30e-4eda-93bc-5bbc166e53e7
+2021-07-31T13:07:54.598-0300 I INDEX    [conn2] build index on: ace.wall properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.wall" }
+2021-07-31T13:07:54.601-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:54.654-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:54.668-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wall", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.wall" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 392ms
+2021-07-31T13:07:54.744-0300 I INDEX    [conn2] build index on: ace.wall properties: { v: 2, key: { map_id: 1, site_id: 1 }, name: "map_id_1_site_id_1", ns: "ace.wall" }
+2021-07-31T13:07:54.753-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:54.786-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:54.792-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "wall", indexes: [ { key: { map_id: 1, site_id: 1 }, name: "map_id_1_site_id_1", ns: "ace.wall" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 117ms
+2021-07-31T13:07:54.807-0300 I STORAGE  [conn2] createCollection: ace.account with generated UUID: 551a9788-f4bc-4677-bfb2-21ad400d4597
+2021-07-31T13:07:55.022-0300 I INDEX    [conn2] build index on: ace.account properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.account" }
+2021-07-31T13:07:55.025-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:55.067-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:55.071-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "account", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.account" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 263ms
+2021-07-31T13:07:55.222-0300 I INDEX    [conn2] build index on: ace.account properties: { v: 2, key: { email: 1, site_id: 1 }, name: "email_1_site_id_1", ns: "ace.account" }
+2021-07-31T13:07:55.224-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:55.281-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:55.284-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "account", indexes: [ { key: { email: 1, site_id: 1 }, name: "email_1_site_id_1", ns: "ace.account" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 200ms
+2021-07-31T13:07:55.341-0300 I INDEX    [conn2] build index on: ace.account properties: { v: 2, key: { name: 1, site_id: 1 }, name: "name_1_site_id_1", ns: "ace.account" }
+2021-07-31T13:07:55.344-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:55.375-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:55.407-0300 I STORAGE  [conn2] createCollection: ace.dpigroup with generated UUID: 2d7de4c4-26c3-418a-bd4c-0b4c595284e7
+2021-07-31T13:07:55.702-0300 I INDEX    [conn2] build index on: ace.dpigroup properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.dpigroup" }
+2021-07-31T13:07:55.719-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:55.845-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:55.851-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "dpigroup", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.dpigroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 444ms
+2021-07-31T13:07:55.888-0300 I STORAGE  [conn2] createCollection: ace.storeddpistats with generated UUID: 0efe4bec-2701-4460-a063-a28f02ac619a
+2021-07-31T13:07:56.197-0300 I INDEX    [conn2] build index on: ace.storeddpistats properties: { v: 2, key: { site_id: 1 }, name: "site_id_1", ns: "ace.storeddpistats" }
+2021-07-31T13:07:56.201-0300 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:07:56.244-0300 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:07:56.259-0300 I COMMAND  [conn2] command ace.$cmd command: createIndexes { createIndexes: "storeddpistats", indexes: [ { key: { site_id: 1 }, name: "site_id_1", ns: "ace.storeddpistats" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 370ms
+2021-07-31T13:07:58.265-0300 I STORAGE  [conn2] createCollection: ace.dashboard with generated UUID: d9eebebb-779d-4247-b15f-959365e9c1ae
+2021-07-31T13:07:59.848-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49224 #3 (3 connections now open)
+2021-07-31T13:07:59.854-0300 I NETWORK  [conn3] received client metadata from 127.0.0.1:49224 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:07:59.898-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49228 #4 (4 connections now open)
+2021-07-31T13:07:59.901-0300 I NETWORK  [conn4] received client metadata from 127.0.0.1:49228 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:07:59.953-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_minute with generated UUID: 9a728a81-ecee-4425-94ff-323d8903853c
+2021-07-31T13:08:00.104-0300 I INDEX    [conn4] build index on: ace_stat.stat_minute properties: { v: 2, key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_minute" }
+2021-07-31T13:08:00.109-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:00.200-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:00.217-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_minute", indexes: [ { key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_minute" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 264ms
+2021-07-31T13:08:00.337-0300 I INDEX    [conn4] build index on: ace_stat.stat_minute properties: { v: 2, key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_minute" }
+2021-07-31T13:08:00.342-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:00.372-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:00.376-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_minute", indexes: [ { key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_minute" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 153ms
+2021-07-31T13:08:00.389-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_5minutes with generated UUID: 198b0c9d-dcd7-4712-bbd1-1c67a2e546ec
+2021-07-31T13:08:00.580-0300 I INDEX    [conn4] build index on: ace_stat.stat_5minutes properties: { v: 2, key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_5minutes" }
+2021-07-31T13:08:00.590-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:00.637-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:00.660-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_5minutes", indexes: [ { key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_5minutes" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 270ms
+2021-07-31T13:08:00.754-0300 I INDEX    [conn4] build index on: ace_stat.stat_5minutes properties: { v: 2, key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_5minutes" }
+2021-07-31T13:08:00.757-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:00.793-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:00.803-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_5minutes", indexes: [ { key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_5minutes" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 121ms
+2021-07-31T13:08:00.845-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_hourly with generated UUID: 387a1a50-70ea-417f-8475-64111faa27fc
+2021-07-31T13:08:01.187-0300 I INDEX    [conn4] build index on: ace_stat.stat_hourly properties: { v: 2, key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_hourly" }
+2021-07-31T13:08:01.195-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:01.323-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:01.331-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_hourly", indexes: [ { key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_hourly" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 485ms
+2021-07-31T13:08:01.748-0300 I INDEX    [conn4] build index on: ace_stat.stat_hourly properties: { v: 2, key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_hourly" }
+2021-07-31T13:08:01.796-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:01.944-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:01.962-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_hourly", indexes: [ { key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_hourly" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 609ms
+2021-07-31T13:08:01.982-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_daily with generated UUID: 3855f723-8f38-44ea-b294-1a71c068f32f
+2021-07-31T13:08:03.032-0300 I INDEX    [conn4] build index on: ace_stat.stat_daily properties: { v: 2, key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_daily" }
+2021-07-31T13:08:03.057-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:03.247-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:03.266-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_daily", indexes: [ { key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_daily" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 1284ms
+2021-07-31T13:08:03.449-0300 I INDEX    [conn4] build index on: ace_stat.stat_daily properties: { v: 2, key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_daily" }
+2021-07-31T13:08:03.456-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:03.524-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:03.533-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_daily", indexes: [ { key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_daily" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 250ms
+2021-07-31T13:08:03.570-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_monthly with generated UUID: 84f3cf03-dd4f-486f-b4eb-3deb053a26b4
+2021-07-31T13:08:04.604-0300 I INDEX    [conn4] build index on: ace_stat.stat_monthly properties: { v: 2, key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_monthly" }
+2021-07-31T13:08:04.610-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:04.714-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:04.717-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_monthly", indexes: [ { key: { site_id: 1, datetime: 1 }, name: "site_id_1_datetime_1", ns: "ace_stat.stat_monthly" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 1147ms
+2021-07-31T13:08:04.836-0300 I INDEX    [conn4] build index on: ace_stat.stat_monthly properties: { v: 2, key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_monthly" }
+2021-07-31T13:08:04.845-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:05.102-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:05.122-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_monthly", indexes: [ { key: { datetime: 1, o: 1, site_id: 1, oid: 1 }, name: "datetime_1_o_1_site_id_1_oid_1", ns: "ace_stat.stat_monthly" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 394ms
+2021-07-31T13:08:05.149-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_life with generated UUID: 7720b624-5b8a-4244-85f1-56cfa49b51f0
+2021-07-31T13:08:05.346-0300 I INDEX    [conn4] build index on: ace_stat.stat_life properties: { v: 2, key: { site_id: 1, o: 1, oid: 1, datetime: 1 }, name: "site_id_1_o_1_oid_1_datetime_1", ns: "ace_stat.stat_life" }
+2021-07-31T13:08:05.357-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:05.413-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:05.421-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_life", indexes: [ { key: { site_id: 1, o: 1, oid: 1, datetime: 1 }, name: "site_id_1_o_1_oid_1_datetime_1", ns: "ace_stat.stat_life" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 271ms
+2021-07-31T13:08:05.476-0300 I INDEX    [conn4] build index on: ace_stat.stat_life properties: { v: 2, key: { datetime: 1 }, name: "datetime_1", ns: "ace_stat.stat_life" }
+2021-07-31T13:08:05.480-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:05.572-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:05.577-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_life", indexes: [ { key: { datetime: 1 }, name: "datetime_1", ns: "ace_stat.stat_life" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 147ms
+2021-07-31T13:08:05.598-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_archive with generated UUID: 42805e2c-f507-4fc6-bc83-46d0a904b939
+2021-07-31T13:08:06.198-0300 I INDEX    [conn4] build index on: ace_stat.stat_archive properties: { v: 2, key: { site_id: 1, o: 1, oid: 1, datetime: 1 }, name: "site_id_1_o_1_oid_1_datetime_1", ns: "ace_stat.stat_archive" }
+2021-07-31T13:08:06.208-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:06.286-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:06.293-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_archive", indexes: [ { key: { site_id: 1, o: 1, oid: 1, datetime: 1 }, name: "site_id_1_o_1_oid_1_datetime_1", ns: "ace_stat.stat_archive" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 694ms
+2021-07-31T13:08:06.350-0300 I INDEX    [conn4] build index on: ace_stat.stat_archive properties: { v: 2, key: { datetime: 1 }, name: "datetime_1", ns: "ace_stat.stat_archive" }
+2021-07-31T13:08:06.353-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:06.461-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:06.477-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_archive", indexes: [ { key: { datetime: 1 }, name: "datetime_1", ns: "ace_stat.stat_archive" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 179ms
+2021-07-31T13:08:06.505-0300 I STORAGE  [conn4] createCollection: ace_stat.stat_dpi with generated UUID: fabc5395-ff9a-425a-8673-de47e328343f
+2021-07-31T13:08:06.835-0300 I INDEX    [conn4] build index on: ace_stat.stat_dpi properties: { v: 2, key: { site_id: 1, o: 1, oid: 1, datetime: 1, app: 1, cat: 1 }, name: "site_id_1_o_1_oid_1_datetime_1_app_1_cat_1", ns: "ace_stat.stat_dpi" }
+2021-07-31T13:08:06.839-0300 I INDEX    [conn4] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:06.877-0300 I INDEX    [conn4] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:06.882-0300 I COMMAND  [conn4] command ace_stat.$cmd command: createIndexes { createIndexes: "stat_dpi", indexes: [ { key: { site_id: 1, o: 1, oid: 1, datetime: 1, app: 1, cat: 1 }, name: "site_id_1_o_1_oid_1_datetime_1_app_1_cat_1", ns: "ace_stat.stat_dpi" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 377ms
+2021-07-31T13:08:08.329-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49296 #5 (5 connections now open)
+2021-07-31T13:08:08.341-0300 I NETWORK  [conn5] received client metadata from 127.0.0.1:49296 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:08:10.724-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49314 #6 (6 connections now open)
+2021-07-31T13:08:10.743-0300 I NETWORK  [conn6] received client metadata from 127.0.0.1:49314 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:08:10.782-0300 I STORAGE  [conn6] createCollection: ace.wifiman_feedback with generated UUID: 5842a224-1156-4824-8383-ecc14751374e
+2021-07-31T13:08:10.924-0300 I INDEX    [conn6] build index on: ace.wifiman_feedback properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace.wifiman_feedback" }
+2021-07-31T13:08:10.932-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:10.955-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:10.958-0300 I COMMAND  [conn6] command ace.$cmd command: createIndexes { createIndexes: "wifiman_feedback", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace.wifiman_feedback" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 175ms
+2021-07-31T13:08:12.070-0300 I STORAGE  [conn6] createCollection: ace.apgroup with generated UUID: 04b3d7aa-2cb1-41d0-892e-03f5677713c2
+2021-07-31T13:08:12.161-0300 I INDEX    [conn6] build index on: ace.apgroup properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace.apgroup" }
+2021-07-31T13:08:12.165-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:12.181-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:12.183-0300 I COMMAND  [conn6] command ace.$cmd command: createIndexes { createIndexes: "apgroup", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace.apgroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 112ms
+2021-07-31T13:08:12.224-0300 I STORAGE  [conn6] createCollection: ace_stat.wifiman_feedback with generated UUID: 5625223b-a10d-471f-aef5-a7e48e6951e3
+2021-07-31T13:08:12.309-0300 I INDEX    [conn6] build index on: ace_stat.wifiman_feedback properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace_stat.wifiman_feedback" }
+2021-07-31T13:08:12.312-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:12.330-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:12.332-0300 I COMMAND  [conn6] command ace_stat.$cmd command: createIndexes { createIndexes: "wifiman_feedback", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace_stat.wifiman_feedback" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 108ms
+2021-07-31T13:08:12.337-0300 I STORAGE  [conn6] createCollection: ace_stat.apgroup with generated UUID: fee3f9c6-0475-445c-89df-9c915a0489fe
+2021-07-31T13:08:12.437-0300 I INDEX    [conn6] build index on: ace_stat.apgroup properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace_stat.apgroup" }
+2021-07-31T13:08:12.439-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:12.458-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:12.461-0300 I COMMAND  [conn6] command ace_stat.$cmd command: createIndexes { createIndexes: "apgroup", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace_stat.apgroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 124ms
+2021-07-31T13:08:12.536-0300 I STORAGE  [conn6] createCollection: ace.dpi with generated UUID: 3f9f5885-3544-4af7-9ecb-a2a89860b706
+2021-07-31T13:08:12.663-0300 I INDEX    [conn6] build index on: ace.dpi properties: { v: 2, key: { time: 1 }, name: "time", ns: "ace.dpi" }
+2021-07-31T13:08:12.666-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:12.690-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:12.694-0300 I COMMAND  [conn6] command ace.$cmd command: createIndexes { createIndexes: "dpi", indexes: [ { key: { time: 1 }, name: "time", ns: "ace.dpi" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 157ms
+2021-07-31T13:08:12.710-0300 I STORAGE  [conn6] createCollection: ace_stat.dpi with generated UUID: 164433f9-2c8b-4261-9a65-ec9ed5579d19
+2021-07-31T13:08:12.809-0300 I INDEX    [conn6] build index on: ace_stat.dpi properties: { v: 2, key: { time: 1 }, name: "time", ns: "ace_stat.dpi" }
+2021-07-31T13:08:12.813-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:08:12.836-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:08:12.839-0300 I COMMAND  [conn6] command ace_stat.$cmd command: createIndexes { createIndexes: "dpi", indexes: [ { key: { time: 1 }, name: "time", ns: "ace_stat.dpi" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 129ms
+2021-07-31T13:08:37.276-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49530 #7 (7 connections now open)
+2021-07-31T13:08:37.284-0300 I NETWORK  [conn7] received client metadata from 127.0.0.1:49530 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:08:42.187-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49568 #8 (8 connections now open)
+2021-07-31T13:08:42.196-0300 I NETWORK  [conn8] received client metadata from 127.0.0.1:49568 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:08:42.251-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49570 #9 (9 connections now open)
+2021-07-31T13:08:42.284-0300 I NETWORK  [conn9] received client metadata from 127.0.0.1:49570 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:09:25.997-0300 I NETWORK  [conn6] end connection 127.0.0.1:49314 (8 connections now open)
+2021-07-31T13:09:25.999-0300 I NETWORK  [conn5] end connection 127.0.0.1:49296 (7 connections now open)
+2021-07-31T13:09:26.018-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49928 #10 (8 connections now open)
+2021-07-31T13:09:26.022-0300 I NETWORK  [conn10] received client metadata from 127.0.0.1:49928 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:09:26.028-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:49930 #11 (9 connections now open)
+2021-07-31T13:09:26.031-0300 I NETWORK  [conn11] received client metadata from 127.0.0.1:49930 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:09:26.036-0300 I COMMAND  [conn11] terminating, shutdown command received
+2021-07-31T13:09:26.038-0300 I NETWORK  [conn11] shutdown: going to close listening sockets...
+2021-07-31T13:09:26.045-0300 I NETWORK  [conn11] removing socket file: /usr/lib/unifi/run/mongodb-27117.sock
+2021-07-31T13:09:26.052-0300 I FTDC     [conn11] Shutting down full-time diagnostic data capture
+2021-07-31T13:09:26.064-0300 I STORAGE  [conn11] WiredTigerKVEngine shutting down
+2021-07-31T13:09:27.751-0300 I STORAGE  [conn11] shutdown: removing fs lock...
+2021-07-31T13:09:27.772-0300 I CONTROL  [conn11] now exiting
+2021-07-31T13:09:27.773-0300 I CONTROL  [conn11] shutting down with code:0
+2021-07-31T13:11:36.763-0300 I CONTROL  [main] ***** SERVER RESTARTED *****
+2021-07-31T13:11:36.825-0300 I CONTROL  [initandlisten] MongoDB starting : pid=334 port=27117 dbpath=/usr/lib/unifi/data/db 64-bit host=6bfeb8574de4
+2021-07-31T13:11:36.830-0300 I CONTROL  [initandlisten] db version v3.6.3
+2021-07-31T13:11:36.834-0300 I CONTROL  [initandlisten] git version: 9586e557d54ef70f9ca4b43c26892cd55257e1a5
+2021-07-31T13:11:36.837-0300 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+2021-07-31T13:11:36.841-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2021-07-31T13:11:36.844-0300 I CONTROL  [initandlisten] modules: none
+2021-07-31T13:11:36.845-0300 I CONTROL  [initandlisten] build environment:
+2021-07-31T13:11:36.847-0300 I CONTROL  [initandlisten]     distarch: x86_64
+2021-07-31T13:11:36.857-0300 I CONTROL  [initandlisten]     target_arch: x86_64
+2021-07-31T13:11:36.861-0300 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", port: 27117, unixDomainSocket: { pathPrefix: "/usr/lib/unifi/run" } }, processManagement: { pidFilePath: "/usr/lib/unifi/run/mongod.pid" }, storage: { dbPath: "/usr/lib/unifi/data/db" }, systemLog: { destination: "file", logAppend: true, logRotate: "reopen", path: "/usr/lib/unifi/logs/mongod.log" } }
+2021-07-31T13:11:36.904-0300 I -        [initandlisten] Detected data files in /usr/lib/unifi/data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2021-07-31T13:11:36.917-0300 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3469M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+2021-07-31T13:11:56.318-0300 I STORAGE  [initandlisten] WiredTiger message [1627747916:318361][334:0x7f2fb5f5b0c0], txn-recover: Main recovery loop: starting at 1/737280
+2021-07-31T13:11:56.848-0300 I STORAGE  [initandlisten] WiredTiger message [1627747916:848831][334:0x7f2fb5f5b0c0], txn-recover: Recovering log 1 through 2
+2021-07-31T13:11:57.093-0300 I STORAGE  [initandlisten] WiredTiger message [1627747917:93948][334:0x7f2fb5f5b0c0], txn-recover: Recovering log 2 through 2
+2021-07-31T13:12:00.111-0300 I CONTROL  [initandlisten] 
+2021-07-31T13:12:00.119-0300 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-07-31T13:12:00.121-0300 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-07-31T13:12:00.124-0300 I CONTROL  [initandlisten] 
+2021-07-31T13:12:01.732-0300 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/usr/lib/unifi/data/db/diagnostic.data'
+2021-07-31T13:12:01.750-0300 I NETWORK  [initandlisten] waiting for connections on port 27117
+2021-07-31T13:12:02.125-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51244 #1 (1 connection now open)
+2021-07-31T13:12:02.192-0300 I NETWORK  [conn1] received client metadata from 127.0.0.1:51244 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:12:02.474-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51248 #2 (2 connections now open)
+2021-07-31T13:12:02.481-0300 I NETWORK  [conn2] received client metadata from 127.0.0.1:51248 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:12:02.748-0300 I COMMAND  [conn2] command ace command: eval { $eval: "db.serverStatus()", args: [], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:20114 locks:{ Global: { acquireCount: { r: 5, W: 1 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 123ms
+2021-07-31T13:12:03.485-0300 I COMMAND  [conn2] CMD: drop ace.apgroup
+2021-07-31T13:12:03.488-0300 I STORAGE  [conn2] Finishing collection drop for ace.apgroup (04b3d7aa-2cb1-41d0-892e-03f5677713c2).
+2021-07-31T13:12:03.629-0300 I COMMAND  [conn2] CMD: drop ace.dpi
+2021-07-31T13:12:03.631-0300 I STORAGE  [conn2] Finishing collection drop for ace.dpi (3f9f5885-3544-4af7-9ecb-a2a89860b706).
+2021-07-31T13:12:04.190-0300 I COMMAND  [conn2] CMD: drop ace.wifiman_feedback
+2021-07-31T13:12:04.194-0300 I STORAGE  [conn2] Finishing collection drop for ace.wifiman_feedback (5842a224-1156-4824-8383-ecc14751374e).
+2021-07-31T13:12:04.390-0300 I WRITE    [conn2] remove ace.wlanconf command: { q: {}, limit: 0 } planSummary: COLLSCAN keysExamined:0 docsExamined:1 ndeleted:1 keysDeleted:5 numYields:1 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 2 } }, Collection: { acquireCount: { w: 2 } } } 132ms
+2021-07-31T13:12:04.394-0300 I COMMAND  [conn2] command ace.$cmd command: delete { delete: "wlanconf", ordered: false, $db: "ace" } numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 2 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_query 136ms
+2021-07-31T13:12:07.835-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51294 #3 (3 connections now open)
+2021-07-31T13:12:07.838-0300 I NETWORK  [conn3] received client metadata from 127.0.0.1:51294 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:12:07.861-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51296 #4 (4 connections now open)
+2021-07-31T13:12:07.869-0300 I NETWORK  [conn4] received client metadata from 127.0.0.1:51296 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:12:07.944-0300 I COMMAND  [conn4] CMD: drop ace_stat.apgroup
+2021-07-31T13:12:07.951-0300 I STORAGE  [conn4] Finishing collection drop for ace_stat.apgroup (fee3f9c6-0475-445c-89df-9c915a0489fe).
+2021-07-31T13:12:07.989-0300 I COMMAND  [conn4] CMD: drop ace_stat.dpi
+2021-07-31T13:12:07.991-0300 I STORAGE  [conn4] Finishing collection drop for ace_stat.dpi (164433f9-2c8b-4261-9a65-ec9ed5579d19).
+2021-07-31T13:12:08.089-0300 I COMMAND  [conn4] CMD: drop ace_stat.wifiman_feedback
+2021-07-31T13:12:08.092-0300 I STORAGE  [conn4] Finishing collection drop for ace_stat.wifiman_feedback (5625223b-a10d-471f-aef5-a7e48e6951e3).
+2021-07-31T13:12:10.770-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51318 #5 (5 connections now open)
+2021-07-31T13:12:10.788-0300 I NETWORK  [conn5] received client metadata from 127.0.0.1:51318 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:12:15.142-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51356 #6 (6 connections now open)
+2021-07-31T13:12:15.154-0300 I NETWORK  [conn6] received client metadata from 127.0.0.1:51356 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:12:15.179-0300 I STORAGE  [conn6] createCollection: ace.apgroup with generated UUID: c63b0e0d-ba7b-4273-90ac-943e7b9814ff
+2021-07-31T13:12:15.648-0300 I INDEX    [conn6] build index on: ace.apgroup properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace.apgroup" }
+2021-07-31T13:12:15.694-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:12:15.855-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:12:15.867-0300 I COMMAND  [conn6] command ace.$cmd command: createIndexes { createIndexes: "apgroup", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace.apgroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 688ms
+2021-07-31T13:12:16.164-0300 I STORAGE  [conn6] createCollection: ace.wifiman_feedback with generated UUID: ccccca0f-4139-4b12-bd8a-ef9edc562b2a
+2021-07-31T13:12:16.294-0300 I INDEX    [conn6] build index on: ace.wifiman_feedback properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace.wifiman_feedback" }
+2021-07-31T13:12:16.297-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:12:16.347-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:12:16.350-0300 I COMMAND  [conn6] command ace.$cmd command: createIndexes { createIndexes: "wifiman_feedback", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace.wifiman_feedback" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 185ms
+2021-07-31T13:12:16.425-0300 I STORAGE  [conn6] createCollection: ace_stat.apgroup with generated UUID: 339c393e-d361-4fb5-9051-0beeffa4f887
+2021-07-31T13:12:16.576-0300 I INDEX    [conn6] build index on: ace_stat.apgroup properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace_stat.apgroup" }
+2021-07-31T13:12:16.578-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:12:16.620-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:12:16.626-0300 I COMMAND  [conn6] command ace_stat.$cmd command: createIndexes { createIndexes: "apgroup", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace_stat.apgroup" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 201ms
+2021-07-31T13:12:16.636-0300 I STORAGE  [conn6] createCollection: ace_stat.wifiman_feedback with generated UUID: 4bc7acc0-a75e-4581-9721-872822ba3541
+2021-07-31T13:12:16.846-0300 I INDEX    [conn6] build index on: ace_stat.wifiman_feedback properties: { v: 2, key: { site_id: 1 }, name: "site_id", ns: "ace_stat.wifiman_feedback" }
+2021-07-31T13:12:16.850-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:12:16.892-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:12:16.894-0300 I COMMAND  [conn6] command ace_stat.$cmd command: createIndexes { createIndexes: "wifiman_feedback", indexes: [ { key: { site_id: 1 }, name: "site_id", ns: "ace_stat.wifiman_feedback" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 258ms
+2021-07-31T13:12:17.074-0300 I STORAGE  [conn6] createCollection: ace.dpi with generated UUID: f9432066-66b1-495c-a0f6-8896b2028c0d
+2021-07-31T13:12:17.220-0300 I INDEX    [conn6] build index on: ace.dpi properties: { v: 2, key: { time: 1 }, name: "time", ns: "ace.dpi" }
+2021-07-31T13:12:17.223-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:12:17.249-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:12:17.254-0300 I COMMAND  [conn6] command ace.$cmd command: createIndexes { createIndexes: "dpi", indexes: [ { key: { time: 1 }, name: "time", ns: "ace.dpi" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 180ms
+2021-07-31T13:12:17.272-0300 I STORAGE  [conn6] createCollection: ace_stat.dpi with generated UUID: 9ccb3f0e-07eb-4eef-9830-703c7c38fcfa
+2021-07-31T13:12:17.401-0300 I INDEX    [conn6] build index on: ace_stat.dpi properties: { v: 2, key: { time: 1 }, name: "time", ns: "ace_stat.dpi" }
+2021-07-31T13:12:17.404-0300 I INDEX    [conn6] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2021-07-31T13:12:17.432-0300 I INDEX    [conn6] build index done.  scanned 0 total records. 0 secs
+2021-07-31T13:12:17.437-0300 I COMMAND  [conn6] command ace_stat.$cmd command: createIndexes { createIndexes: "dpi", indexes: [ { key: { time: 1 }, name: "time", ns: "ace_stat.dpi" } ], $readPreference: { mode: "secondaryPreferred" }, $db: "ace_stat" } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 165ms
+2021-07-31T13:12:46.189-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:51598 #7 (7 connections now open)
+2021-07-31T13:12:46.213-0300 I NETWORK  [conn7] received client metadata from 127.0.0.1:51598 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:13:42.976-0300 I STORAGE  [conn6] createCollection: ace.systemevent with generated UUID: a55fe83d-9f80-401f-ae81-ac65ae72db42
+2021-07-31T13:13:43.177-0300 I COMMAND  [conn6] command ace.systemevent command: insert { insert: "systemevent", ordered: true, $db: "ace" } ninserted:1 keysInserted:1 numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_query 201ms
+2021-07-31T13:15:03.843-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:52710 #8 (8 connections now open)
+2021-07-31T13:15:03.864-0300 I NETWORK  [conn8] received client metadata from 127.0.0.1:52710 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:15:23.033-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:52858 #9 (9 connections now open)
+2021-07-31T13:15:23.037-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:52860 #10 (10 connections now open)
+2021-07-31T13:15:23.041-0300 I NETWORK  [conn9] received client metadata from 127.0.0.1:52858 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:15:23.042-0300 I NETWORK  [conn10] received client metadata from 127.0.0.1:52860 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:16:37.692-0300 I NETWORK  [conn6] end connection 127.0.0.1:51356 (9 connections now open)
+2021-07-31T13:16:37.693-0300 I NETWORK  [conn5] end connection 127.0.0.1:51318 (8 connections now open)
+2021-07-31T13:16:37.709-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:53452 #11 (9 connections now open)
+2021-07-31T13:16:37.713-0300 I NETWORK  [conn11] received client metadata from 127.0.0.1:53452 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:16:37.725-0300 I NETWORK  [listener] connection accepted from 127.0.0.1:53454 #12 (10 connections now open)
+2021-07-31T13:16:37.734-0300 I NETWORK  [conn12] received client metadata from 127.0.0.1:53454 conn: { driver: { name: "mongo-java-driver", version: "3.4.3-dirty" }, os: { type: "Linux", name: "Linux", architecture: "amd64", version: "5.10.25-linuxkit" }, platform: "Java/Private Build/1.8.0_292-8u292-b10-0ubuntu1~18.04-b10" }
+2021-07-31T13:16:37.747-0300 I COMMAND  [conn12] terminating, shutdown command received
+2021-07-31T13:16:37.749-0300 I NETWORK  [conn12] shutdown: going to close listening sockets...
+2021-07-31T13:16:37.751-0300 I NETWORK  [conn12] removing socket file: /usr/lib/unifi/run/mongodb-27117.sock
+2021-07-31T13:16:37.758-0300 I FTDC     [conn12] Shutting down full-time diagnostic data capture
+2021-07-31T13:16:37.784-0300 I STORAGE  [conn12] WiredTigerKVEngine shutting down
+2021-07-31T13:16:39.436-0300 I STORAGE  [conn12] shutdown: removing fs lock...
+2021-07-31T13:16:39.443-0300 I CONTROL  [conn12] now exiting
+2021-07-31T13:16:39.445-0300 I CONTROL  [conn12] shutting down with code:0

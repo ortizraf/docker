@@ -1,0 +1,131 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxy-service
+  labels:
+    run: my-nginx
+    app: proxy-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+    name: http
+  - port: 443
+    protocol: TCP
+    name: https
+  selector:
+    run: my-nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+        app: proxy
+    spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: nginxsecret
+      - name: configmap-volume
+        configMap:
+          name: nginxconfigmap
+      containers:
+      - name: nginx
+        image: nginx:1.16.1
+        ports:
+        - containerPort: 443
+        - containerPort: 80
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    #macOS path
+    path: "/Users/foo/mysql"
+    #linux path
+    #path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  labels:
+    run: mariadb
+    app: db-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3306
+  selector:
+    run: db-mariadb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-mariadb
+spec:
+  selector:
+    matchLabels:
+      run: db-mariadb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        run: db-mariadb
+        app: mariadb
+    spec:
+      containers:
+      - name: db-mariadb
+        image: mariadb:10.4
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: rootmysql
+          - name: MYSQL_DATABASE
+            value: system 
+          - name: MYSQL_USER
+            value: user
+          - name: MYSQL_PASSWORD
+            value: user
+        ports:
+        - containerPort: 3306
+          name: db-mariadb
+        volumeMounts:
+        - name: db-persistent-storage
+          mountPath: /var/lib/mysql      
+      volumes:
+      - name: db-persistent-storage
+        persistentVolumeClaim:
+          claimName: db-pv-claim
