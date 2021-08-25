@@ -1,0 +1,171 @@
+# Docker Compose com ldap local para executar - docker-compose-dev-ldap.yml
+version: "2.4"
+
+services:
+    alfresco:
+        #image: alfresco/alfresco-content-repository-community:6.2.0-ga
+        build:
+            context: ./content
+        container_name: alf-repo
+        mem_limit: 2g
+        volumes:
+            - alf_data:/usr/local/tomcat/alf_data
+        environment:
+            CATALINA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:8888"
+            JAVA_OPTS: "
+                -Dsynchronization.syncOnStartup=true
+                -Dsynchronization.synchronizeChangesOnly=true
+                -Dsynchronization.syncWhenMissingPeopleLogIn=true
+                -Dsynchronization.autoCreatePeopleOnLogin=true
+                -Dcsrf.filter.enabled=false
+                -Ddeployment.method=DOCKER_COMPOSE
+                -Ddb.driver=com.mysql.cj.jdbc.Driver
+                -Ddb.username=root
+                -Ddb.password=alfresco
+                -Ddb.url=jdbc:\"mysql://database:3306/alfresco?useUnicode=yes&characterEncoding=UTF-8\"
+                -Dindex.subsystem.name=solr6
+                -Dalfresco.restApi.basicAuthScheme=true
+                -Dimg.url=http://imagemagick:8090/
+                -Djodconverter.url=http://libreoffice:8090/
+                -Dmessaging.broker.url=\"failover:(nio://activemq:61616)?timeout=3000&jms.useCompression=true\"
+                -Dalfresco-pdf-renderer.url=http://alfresco-pdf-renderer:8090/
+                -Dshare.host=localhost
+                -Dsolr.host=solr6
+                -Dsolr.port=8983
+                -Dsolr.secureComms=none
+                -Dsolr.base.url=/solr
+                -Dsfs.url=http://shared-file-store:8099/
+                -Dtika.url=http://tika:8090/
+                -Dlocal.transform.service.enabled=false
+                -Xms2g -Xmx2g
+               "
+        ports:
+            - 8888:8888
+               
+    share:
+        image: alfresco/alfresco-share:6.2.0
+        #build:
+            #context: ./share
+        container_name: alf-share
+        mem_limit: 1g
+        environment:
+            - REPO_HOST=alfresco
+            - REPO_PORT=8080
+            - "CATALINA_OPTS= -Xms500m -Xmx500m"
+
+    database:
+        image: mariadb:10.2.18
+        container_name: alf-mariadb
+        environment:
+            - MYSQL_ROOT_PASSWORD=alfresco
+            - MYSQL_DATABASE=alfresco
+        volumes:
+            - mysql_data:/var/lib/mysql
+
+    solr6:
+        image: alfresco/alfresco-search-services:1.4.0
+        #build:
+            #context: ./search
+        container_name: alf-search
+        mem_limit: 2g
+        environment:
+            - SOLR_ALFRESCO_HOST=alfresco
+            - SOLR_ALFRESCO_PORT=8080
+            - SOLR_SOLR_HOST=solr6
+            - SOLR_SOLR_PORT=8983
+            - SOLR_CREATE_ALFRESCO_DEFAULTS=alfresco,archive
+            #HTTP by default
+            - ALFRESCO_SECURE_COMMS=none
+            - "SOLR_JAVA_MEM=-Xms2g -Xmx2g"
+        volumes:
+            - solr_data:/opt/alfresco-search-services/data
+
+    activemq:
+        image: alfresco/alfresco-activemq:5.15.14
+        container_name: alf-activemq
+        mem_limit: 2048m
+        ports:
+            - 8161:8161
+
+    openldap:
+        image: openfrontier/openldap-server:latest
+        container_name: alf-openldap
+        volumes:
+            - openldap_data:/var/lib/openldap
+        environment:
+            - SLAPD_PASSWORD=alfresco
+            - SLAPD_DOMAIN=nextneo.org.br
+        ports:
+            - 389:389
+
+    imagemagick:
+        image: alfresco/alfresco-imagemagick:2.1.1
+        container_name: alf-imagemagick
+        mem_limit: 1g
+        environment:
+            JAVA_OPTS: " -Xms500m -Xmx500m"
+            FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+
+    libreoffice:
+        image: alfresco/alfresco-libreoffice:2.1.0
+        container_name: alf-libreoffice
+        mem_limit: 1g
+        environment:
+            JAVA_OPTS: " -Xms500m -Xmx500m"
+            FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+
+    alfresco-pdf-renderer:
+        image: alfresco/alfresco-pdf-renderer:2.1.0
+        container_name: alf-pdf-renderer
+        mem_limit: 1g
+        environment:
+            JAVA_OPTS: " -Xms500m -Xmx500m"
+            FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+
+    tika:
+        image: alfresco/alfresco-tika:2.1.0
+        container_name: alf-tika
+        mem_limit: 1g
+        environment:
+            JAVA_OPTS: " -Xms500m -Xmx500m"
+            FILE_STORE_URL: "http://shared-file-store:8099/alfresco/api/-default-/private/sfs/versions/1/file"
+
+    shared-file-store:
+        image: alfresco/alfresco-shared-file-store:0.6.0
+        container_name: alf-shared-file-store
+        environment:
+            scheduler.content.age.millis: 86400000
+            scheduler.cleanup.interval: 86400000
+            JAVA_OPTS: " -Xms256m -Xmx256m"
+        volumes:
+            - shared-file-store-volume:/tmp/Alfresco/sfs
+
+    proxy:
+        image: nginx:latest
+        container_name: alf-nginx
+        ports:
+            - 80:8080
+        command: |
+            /bin/bash -c "echo '
+            client_max_body_size 50m;
+            server {
+                listen 8080;
+                add_header X-Frame-Options "SAMEORIGIN";
+                location /share {
+                    proxy_pass http://share:8080/share;
+                    proxy_set_header Host $$host;
+                    proxy_set_header X-Real-IP $$remote_addr;
+                }
+                location /alfresco {
+                    proxy_pass http://alfresco:8080/alfresco;
+                    proxy_set_header Host $$host;
+                    proxy_set_header X-Real-IP $$remote_addr;
+                }
+            }' | tee /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+volumes:
+    shared-file-store-volume:
+    alf_data:
+    solr_data:
+    mysql_data:
+    openldap_data:
