@@ -10,7 +10,7 @@ version: "2"
 
 services:
     alfresco:
-        image: alfresco/alfresco-content-repository-community:7.1.0-A9
+        image: alfresco/alfresco-content-repository-community:7.1.0.1
         mem_limit: 2g
         environment:
             JAVA_TOOL_OPTIONS: "
@@ -49,7 +49,7 @@ services:
             - alf7_data:/usr/local/tomcat/alf_data
 
     transform-core-aio:
-        image: alfresco/alfresco-transform-core-aio:2.5.2
+        image: alfresco/alfresco-transform-core-aio:2.5.4
         mem_limit: 1536m
         environment:
             JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
@@ -57,7 +57,7 @@ services:
             - 8090:8090
 
     share:
-        image: alfresco/alfresco-share:7.1.0-M2
+        image: alfresco/alfresco-share:7.1.0.1
         mem_limit: 1g
         environment:
             REPO_HOST: "alfresco"
@@ -85,7 +85,7 @@ services:
             - alf7_postgres-data:/var/lib/postgresql/data
 
     solr6:
-        image: alfresco/alfresco-search-services:2.0.2
+        image: alfresco/alfresco-search-services:2.0.2.1
         mem_limit: 2g
         environment:
             #Solr needs to know how to register itself with Alfresco
