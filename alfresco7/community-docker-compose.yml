@@ -149,6 +149,11 @@ services:
                     proxy_set_header Host $$host;
                     proxy_set_header X-Real-IP $$remote_addr;
                 }
+                location /solr {
+                    proxy_pass http://solr6:8983/solr;
+                    proxy_set_header Host $$host;
+                    proxy_set_header X-Real-IP $$remote_addr;
+                }
             }' | tee /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
 volumes:
