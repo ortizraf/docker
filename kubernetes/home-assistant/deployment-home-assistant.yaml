@@ -1,0 +1,149 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homeassist-pv
+spec:
+  capacity:
+    storage: 30Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /data/homeassist
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - app1.local
+          - app2.local
+          - app3.local
+          - app4.local
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homeassist-pv-claim
+  labels:
+    app: homeassist
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: homeassist-pv
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: homeassist-config
+type: Opaque
+data:
+  configuration.yaml: PASTE_BASE64_CONFIG_HERE
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homeassist-deployment
+  labels:
+    app: homeassist
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homeassist
+  template:
+    metadata:
+      labels:
+        app: homeassist
+    spec:
+      containers:
+        - name: homeassist
+          image: homeassistant/home-assistant
+          ports:
+            - containerPort: 8123
+          volumeMounts:
+            - mountPath: "/config"
+              name: homeassist-persistent-storage
+            - mountPath: "/config/configuration.yaml"
+              subPath: "configuration.yaml"
+              name: homeassist-config
+      volumes:
+        - name: homeassist-config
+          secret:
+            secretName: homeassist-config
+            defaultMode: 0777
+        - name: homeassist-persistent-storage
+          persistentVolumeClaim:
+            claimName: homeassist-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeassist
+spec:
+  type: ClusterIP
+  selector:
+    app: homeassist
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8123
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 8123
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeassist-ingress-tcp
+  namespace: ingress
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "homeassist-shared-ip"
+spec:
+  selector:
+    name: nginx-ingress-microk8s
+  type: LoadBalancer
+  # loadBalancerIP is optional. MetalLB will automatically allocate an IP
+  # from its pool if not specified. You can also specify one manually.
+  # loadBalancerIP: x.y.z.a
+  loadBalancerIP: 192.168.1.10
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: homeassist-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+    - hosts:
+        - homeassist.local
+      secretName: star-app-tls
+  rules:
+    - host: homeassist.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: homeassist
+                port:
+                  number: 443
