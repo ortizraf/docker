@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  drawio:
+    image: jgraph/drawio
+    container_name: drawio
+    restart: unless-stopped
+    ports:
+      - 9096:8080  # Porta 9096 no host mapeada para a 8080 no container
+
+    user: "1000:1000"  # Rodar com UID/GID 1000
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

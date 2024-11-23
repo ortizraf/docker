@@ -1,0 +1,13 @@
+version: '3'
+services:
+  omv-debian:
+    container_name: omv-debian
+    build: .
+    privileged: true
+    stdin_open: true
+    tty: true       
+    ports:
+      - "80:80"
+      - "443:443"
+    #restart: always
+    network_mode: host

@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  grafana:
+    image: grafana/grafana-oss:10.0.10
+    container_name: grafana
+    restart: unless-stopped
+    networks:
+      - network-app
+    ports:
+      - '3000:3000'
+    expose:
+      - '3000'
+    volumes:
+      - grafana-volume:/var/lib/grafana
+networks:
+  network-app:
+volumes:
+  grafana-volume:

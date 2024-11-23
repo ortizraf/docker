@@ -1,0 +1,121 @@
+services:
+  ged-share:
+    image: alfresco/alfresco-share:23.3.0
+    mem_limit: 1g
+    build:
+      dockerfile: ./Dockerfile
+      context: ../../../ged-share-docker/target
+    environment:
+      CATALINA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=nvers,address=0.0.0.0:8888"
+      REPO_HOST: ged-acs
+      REPO_PORT: 8080
+      JAVA_OPTS: >-
+        -XX:MinRAMPercentage=50
+        -XX:MaxRAMPercentage=80
+        -Dalfresco.host=localhost
+        -Dalfresco.port=8080
+        -Dalfresco.context=alfresco
+        -Dalfresco.protocol=http
+  ged-acs:
+    image: alfresco/alfresco-content-repository-community:23.3.0
+    mem_limit: 4g
+    build:
+      dockerfile: ./Dockerfile
+      context: ../../../ged-platform-docker/target
+    environment:
+      JAVA_TOOL_OPTIONS: >-
+        -Dencryption.keystore.type=JCEKS
+        -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding
+        -Dencryption.keyAlgorithm=DESede
+        -Dencryption.keystore.location=/usr/local/tomcat/shared/classes/alfresco/extension/keystore/keystore
+        -Dmetadata-keystore.password=mp6yc0UD9e
+        -Dmetadata-keystore.aliases=metadata
+        -Dmetadata-keystore.metadata.password=oKIWzVdEdA
+        -Dmetadata-keystore.metadata.algorithm=DESede
+      JAVA_OPTS: >-
+        -Ddb.driver=org.postgresql.Driver
+        -Ddb.username=alfresco
+        -Ddb.password=alfresco
+        -Ddb.url=jdbc:postgresql://postgres:5432/alfresco
+        -Dsolr.host=solr6
+        -Dsolr.port=8983
+        -Dsolr.http.connection.timeout=1000
+        -Dsolr.secureComms=secret
+        -Dsolr.sharedSecret=secret
+        -Dsolr.base.url=/solr
+        -Dindex.subsystem.name=solr6
+        -Dshare.host=127.0.0.1
+        -Dshare.port=8080
+        -Dalfresco.host=localhost
+        -Dalfresco.port=8080
+        -Dcsrf.filter.enabled=false
+        -Daos.baseUrlOverwrite=http://localhost:8080/alfresco/aos
+        -Dmessaging.broker.url="failover:(nio://ged-activemq:61616)?timeout=3000&jms.useCompression=true"
+        -Ddeployment.method=DOCKER_COMPOSE
+        -DlocalTransform.core-aio.url=http://ged-transform-core-aio:8090/
+        -XX:MinRAMPercentage=50
+        -XX:MaxRAMPercentage=80
+      CATALINA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:8888"
+    ports:
+      - "8080:8080"
+      - "8888:8888"
+    volumes:
+      - ged-acs-volume:/usr/local/tomcat/alf_data
+    depends_on:
+      - ged-postgres
+  ged-transform-core-aio:
+    image: alfresco/alfresco-transform-core-aio:5.1.4
+    mem_limit: 1536m
+    environment:
+      JAVA_OPTS: >-
+        -XX:MinRAMPercentage=50
+        -XX:MaxRAMPercentage=80
+    ports:
+      - "8090:8090"
+  ged-postgres:
+    image: postgres:14.4
+    mem_limit: 1g
+    environment:
+      POSTGRES_DB: alfresco
+      POSTGRES_USER: alfresco
+      POSTGRES_PASSWORD: alfresco
+    command: postgres -c max_connections=300 -c log_min_messages=LOG
+    ports:
+      - "5432:5432"
+    volumes:
+      - ged-db-volume:/var/lib/postgresql/data
+  ged-ass:
+    image: alfresco/alfresco-search-services:2.0.11
+    mem_limit: 2g
+    environment:
+      SOLR_ALFRESCO_HOST: ged-acs
+      SOLR_ALFRESCO_PORT: 8080
+      SOLR_SOLR_HOST: ged-ass
+      SOLR_SOLR_PORT: 8983
+      SOLR_CREATE_ALFRESCO_DEFAULTS: alfresco,archive
+      ALFRESCO_SECURE_COMMS: "secret"
+      JAVA_TOOL_OPTIONS: >-
+        -Dalfresco.secureComms.secret=secret
+    ports:
+      - "8983:8983"
+    volumes:
+      - ged-ass-volume:/opt/alfresco-search-services/contentstore
+      - ged-ass-volume:/opt/alfresco-search-services/data
+  ged-activemq:
+      image: alfresco/alfresco-activemq:5.17-jre17-rockylinux8
+      mem_limit: 1g
+      ports:
+        - 8161:8161 # Web Console
+        - 5672:5672 # AMQP
+        - 61616:61616 # OpenWire
+        - 61613:61613 # STOMP
+  ged-content-app:
+    image: alfresco/alfresco-content-app:5.0.1
+    mem_limit: 128m
+    environment:
+      APP_BASE_SHARE_URL: "http://localhost:8080/aca/#/preview/s"
+
+volumes:
+  ged-acs-volume:
+  ged-db-volume:
+  ged-ass-volume:

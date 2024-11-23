@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  tailscale:
+    container_name: tailscaled
+    image: tailscale/tailscale
+    restart: unless-stopped
+    volumes:
+      - /var/lib:/var/lib
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - TS_AUTHKEY=tskey-auth-km7i7c7CNTRL-A9rdar1SGKcasYB99cMaKc36LVYoy3sZ
+      - TS_STATE_DIR=/var/lib/tailscale
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    network_mode: host

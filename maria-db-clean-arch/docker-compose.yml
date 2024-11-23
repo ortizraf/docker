@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  db:
+    image: mariadb:10.2
+    container_name: db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bank
+      - MYSQL_USER=ortizraf
+      - MYSQL_PASSWORD=Sys2022@Pass
+    networks:
+      - network-app
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    restart: always
+    volumes:
+      - db-clean-arch-volume:/var/lib/mysql
+networks:
+  network-app:
+volumes:
+  db-clean-arch-volume:
+    #external: true
